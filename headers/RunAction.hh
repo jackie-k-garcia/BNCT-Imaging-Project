@@ -40,7 +40,7 @@
 
 #include <vector>
 
-class Run;
+// class Run;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -53,13 +53,13 @@ class RunAction : public G4UserRunAction
     // Define the destructor for the run action.
     virtual ~RunAction();
 
-    // Define a method to generate a new run.
-    virtual G4Run* GenerateRun() {return new Run;};
+    // // Define a method to generate a new run.
+    // virtual G4Run* GenerateRun() {return new Run;};
 
     // Define the beginning of the run action, in which initialization of the
     //   energy deposition accumulables and the histogram analysis manager
     //   occurs.
-    virtual void BeginOfRunAction(const G4Run*);
+    virtual void BeginOfRunAction();
 
     // Define the end of the run action, in which saving of the ROOT file,
     //   dumping of the fluence data, merging of the energy deposition

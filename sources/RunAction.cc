@@ -32,7 +32,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "RunAction.hh"
-#include "Run.hh"
+// #include "Run.hh"
 // #include "DetectorConstruction.hh"
 // #include "PrimaryGeneratorAction.hh"
 #include "HistoManager.hh"
@@ -92,7 +92,7 @@ RunAction::~RunAction()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RunAction::BeginOfRunAction(const G4Run* aRun)
+void RunAction::BeginOfRunAction()
 {
   // Histograms
   //
@@ -123,16 +123,11 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
     G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update");
   }
 
+  G4int numOfEvents = aRun->GetNumberOfEvent();
+  if (numOfEvents == 0) return;
+
   // Print the number of events that occurred in the run.
-  G4cout << "Number of Events Processed: " << aRun->GetNumberOfEvent() << G4endl;
-
-  // Cast the G4Run pointer onto a Run pointer. The cast pointer is expected to
-  //   exist. An error is thrown and the program exits if the cast fails.
-  const Run* theRun = dynamic_cast<const Run*>(aRun);
-  assert (0 != theRun);
-
-  G4int nofEvents = aRun->GetNumberOfEvent();
-  if (nofEvents == 0) return;
+  G4cout << "Number of Events Processed: " << numOfEvents << G4endl;
 
   // Get an instance of the analysis manager to save the histograms.
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
@@ -145,9 +140,6 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
     analysisManager->CloseFile();
   }
 
-  // Dump the fluence data into the output file.
-  theRun->DumpData(fOutputFileSpec);
-
   // Merge the energy deposition accumulables.
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Merge();
@@ -157,12 +149,12 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
   G4double engDep  = fEngDep.GetValue();
   G4double engDepSqr = fEngDepSqr.GetValue();
 
-  G4double rms = engDepSqr - engDep*engDep/nofEvents;
+  G4double rms = engDepSqr - engDep*engDep/numOfEvents;
   if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;
 
   // Run conditions
   //
-  G4cout << G4endl << G4endl << " The run consists of " << nofEvents
+  G4cout << G4endl << G4endl << " The run consists of " << numOfEvents
          << " particle(s)" << G4endl << G4endl;
 }
 

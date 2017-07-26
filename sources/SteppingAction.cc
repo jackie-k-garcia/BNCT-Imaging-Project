@@ -138,7 +138,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 
               // Bin the kinetic energy the neutron has deposited in the
               //  scoring volume by the if it is non-zero.
-              if (deposited_ke > 0) {analysisManager->FillH1(ih+5, deposited_ke);}
+              if (deposited_ke > 0) {analysisManager->FillH1(ih+1, deposited_ke);}
 
               // Add the current-step energy deposition in the logical volume
               //  of interest to the event action energy deposition counter
