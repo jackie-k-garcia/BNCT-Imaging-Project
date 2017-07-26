@@ -61,7 +61,6 @@ class HistoManager
   private:
     void Book();
 
-    G4String fFileName;
     // DetectorConstruction* fDetector;
     // G4LogicalVolume* fScoringVolume;
     // std::vector<G4LogicalVolume*> fScoringVolume1;

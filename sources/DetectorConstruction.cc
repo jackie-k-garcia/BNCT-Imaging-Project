@@ -81,28 +81,19 @@ DetectorConstruction::DetectorConstruction()
  fDetectorMessenger(0),fScoringVolume(0),
  fScoringVolumeVec(0)
 {
-  fReadFile ="test3.gdml";
-  fWritingChoice=1;
   DefineMaterials();
-
-  fDetectorMessenger = new DetectorMessenger(this);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 DetectorConstruction::~DetectorConstruction()
-{ delete fDetectorMessenger;}
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
     G4VPhysicalVolume* fWorldPhysVol;
-    fParser.Read(fReadFile,false);
-    fWorldPhysVol = fParser.GetWorldVolume();
-    fScoringVolume = fParser.GetVolume("Target_logical");
-    fScoringVolumeVec.push_back(fParser.GetVolume("TargetV4_Assem-1_Target_Faceplate2-2_logical"));
-    fScoringVolumeVec.push_back(fParser.GetVolume("Target_logical"));
 
     ConstructSDandField();
 
@@ -149,14 +140,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
 
 
 // //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-// SetReadFile
-//
-void DetectorConstruction::SetReadFile( const G4String& File )
-{
-  fReadFile=File;
-  fWritingChoice=0;
-}
 
 void DetectorConstruction::ConstructSDandField()
 {

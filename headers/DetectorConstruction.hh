@@ -32,7 +32,6 @@
 #ifndef DetectorConstruction_h
 #define DetectorConstruction_h 1
 
-#include "G4GDMLParser.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 #include "G4Cache.hh"
@@ -65,23 +64,14 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     // Return the number of elements in the scoring volume vector.
     G4int GetScoreVolVecSize() const {return fScoringVolumeVec.size();}
 
-    // Reading GDML
-    //
-    // void SetReadFile( const G4String& File);
-    void SetReadFile( const G4String&);
-
     // Construct the sensitive detectors and electromagnetic fields through them,
     //  if desired.
     void ConstructSDandField();
 
   private:
 
-    G4GDMLParser       fParser;
     G4Material*        fWorldMater;
     G4VPhysicalVolume* fPhysiWorld;
-    G4int fWritingChoice;
-    G4String fReadFile;
-    DetectorMessenger* fDetectorMessenger;
     G4LogicalVolume* fScoringVolume;
     std::vector<G4LogicalVolume*> fScoringVolumeVec;
 

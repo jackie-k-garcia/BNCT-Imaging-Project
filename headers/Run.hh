@@ -23,72 +23,48 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-// $Id: ActionInitialization.cc 68058 2013-03-13 14:47:43Z gcosmo $
+/// \file Run.hh
+/// \brief Definition of the Run class
 //
-/// \file ActionInitialization.cc
-/// \brief Implementation of the ActionInitialization class
+// $Id: Run.hh 71375 2013-06-14 07:39:33Z maire $
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "globals.hh"
+#ifndef Run_h
+#define Run_h 1
 
-#include "ActionInitialization.hh"
-#include "PrimaryGeneratorAction.hh"
-#include "RunAction.hh"
-#include "HistoManager.hh"
-#include "SteppingAction.hh"
-#include "EventAction.hh"
+#include "G4Event.hh"
+#include "G4Run.hh"
+#include "G4THitsMap.hh"
+#include <map>
 
-// #include "TrackingAction.hh"
-// #include "SteppingVerbose.hh"
+// class G4THitsMap
+// class G4Event;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ActionInitialization::ActionInitialization(DetectorConstruction* detector)
- : G4VUserActionInitialization(),
-   fDetector(detector), fOutputFileSpec(outputFile)
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-ActionInitialization::~ActionInitialization()
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void ActionInitialization::BuildForMaster() const
+class Run : public G4Run
 {
-  SetUserAction(new RunAction(fOutputFileSpec));
-}
+  public:
+    Run();
+    virtual ~Run();
+
+    virtual void RecordEvent(const G4Event*);
+    virtual void Merge(const G4Run*);
+    void DumpData(G4String&) const;
+
+  private:
+    void Print(const std::vector<G4String>& title,
+               const std::map< G4int, std::vector<G4double> >& out,
+               G4String&) const;
+
+    std::map<G4int, G4THitsMap<G4double>*> fluenceMap;
+
+    // Define the number of theta bins.
+    const G4int numThetaBins = 233;
+};
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ActionInitialization::Build() const
-{
-  // Define and set a new run action.
-  RunAction* runAction = new RunAction(fOutputFileSpec);
-  SetUserAction(runAction);
-
-  // Define and set a new primary generator action.
-  SetUserAction(new PrimaryGeneratorAction());
-
-  // Define and set a new event action.
-  EventAction* eventAction = new EventAction(runAction);
-  SetUserAction(eventAction);
-
-  // Define a new histogram manager. The setup of new histograms is done with this
-  //  HistoManager class instantiation.
-  // HistoManager* histoManager = new HistoManager();
-
-  // SetUserAction(new TrackingAction(fDetector, event, histo));
-
-  // Define and set a new stepping action.
-  SetUserAction(new SteppingAction(runAction, eventAction));
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-// G4VSteppingVerbose* ActionInitialization::InitializeSteppingVerbose() const
-// {
-//   return new SteppingVerbose();
-// }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+#endif

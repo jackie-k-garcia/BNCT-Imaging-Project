@@ -100,14 +100,8 @@ void HistoManager::Book()
       const G4String title[] =
               {
                 "Neutrons Leaving World"                          // ID = 0
-                "Neutrons Entering Volume 1",                     // ID = 1
-                "Neutrons Entering Volume 2",                     // ID = 2
-                "Neutrons Scattering in Volume 1"                 // ID = 3
-                "Neutrons Scattering in Volume 2"                 // ID = 4
-                "Energy Deposition in Volume 1",                  // ID = 5
-                "Energy Deposition in Volume 2",                  // ID = 6
-                "Neutron Fluence Into Volume 1",                  // ID = 7
-                "Neutron Fluence Into Volume 2",                  // ID = 8
+                "Energy Deposition in Volume 1",                  // ID = 1
+                "Energy Deposition in Volume 2",                  // ID = 2
               };
 
       // Define the maximum number of histograms as the number of elements in

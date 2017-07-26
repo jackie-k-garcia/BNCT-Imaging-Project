@@ -54,8 +54,6 @@ class ActionInitialization : public G4VUserActionInitialization
   private:
 
     DetectorConstruction* fDetector;
-
-    const G4String fOutputFileSpec;
 };
 
 #endif

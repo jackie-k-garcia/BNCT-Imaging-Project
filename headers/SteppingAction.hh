@@ -23,72 +23,53 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-// $Id: ActionInitialization.cc 68058 2013-03-13 14:47:43Z gcosmo $
+/// \file SteppingAction.hh
+/// \brief Definition of the SteppingAction class
 //
-/// \file ActionInitialization.cc
-/// \brief Implementation of the ActionInitialization class
+// $Id: SteppingAction.hh 66241 2012-12-13 18:34:42Z gunter $
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+#ifndef SteppingAction_h
+#define SteppingAction_h 1
+
+#include "G4UserSteppingAction.hh"
 #include "globals.hh"
-
-#include "ActionInitialization.hh"
-#include "PrimaryGeneratorAction.hh"
-#include "RunAction.hh"
-#include "HistoManager.hh"
-#include "SteppingAction.hh"
-#include "EventAction.hh"
-
-// #include "TrackingAction.hh"
-// #include "SteppingVerbose.hh"
+#include "vector"
+// #include "HistoManager.hh"
+#include "G4VProcess.hh"
+class HistoManager;
+class DetectorConstruction;
+class EventAction;
+class G4LogicalVolume;
+class RunAction;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ActionInitialization::ActionInitialization(DetectorConstruction* detector)
- : G4VUserActionInitialization(),
-   fDetector(detector), fOutputFileSpec(outputFile)
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-ActionInitialization::~ActionInitialization()
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void ActionInitialization::BuildForMaster() const
+class SteppingAction : public G4UserSteppingAction
 {
-  SetUserAction(new RunAction(fOutputFileSpec));
-}
+  public:
+    SteppingAction(RunAction*, EventAction*);
+   ~SteppingAction();
+
+    virtual void UserSteppingAction(const G4Step*);
+
+    RunAction* runAction;
+
+  private:
+    // Initialize the local, private run action variable for use in this class.
+    RunAction* fRunAction;
+
+    // Initialize the local, private event action variable for use in this class.
+    EventAction* fEventAction;
+
+    // Initialize the local, private scoring volume and scoring volume vector for use
+    //  in this class.
+    G4LogicalVolume* fScoringVolume;
+    std::vector<G4LogicalVolume*> fScoringVolumeVec;
+};
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ActionInitialization::Build() const
-{
-  // Define and set a new run action.
-  RunAction* runAction = new RunAction(fOutputFileSpec);
-  SetUserAction(runAction);
-
-  // Define and set a new primary generator action.
-  SetUserAction(new PrimaryGeneratorAction());
-
-  // Define and set a new event action.
-  EventAction* eventAction = new EventAction(runAction);
-  SetUserAction(eventAction);
-
-  // Define a new histogram manager. The setup of new histograms is done with this
-  //  HistoManager class instantiation.
-  // HistoManager* histoManager = new HistoManager();
-
-  // SetUserAction(new TrackingAction(fDetector, event, histo));
-
-  // Define and set a new stepping action.
-  SetUserAction(new SteppingAction(runAction, eventAction));
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-// G4VSteppingVerbose* ActionInitialization::InitializeSteppingVerbose() const
-// {
-//   return new SteppingVerbose();
-// }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+#endif
