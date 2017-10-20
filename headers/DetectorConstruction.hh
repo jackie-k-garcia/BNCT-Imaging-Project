@@ -32,16 +32,29 @@
 #ifndef DetectorConstruction_h
 #define DetectorConstruction_h 1
 
+#include "G4VTouchable.hh"
+#include "G4TouchableHistory.hh"
+
+#include "G4SystemOfUnits.hh"
+#include "G4PhysicalConstants.hh"
+#include "G4UnitsTable.hh"
+
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 #include "G4Cache.hh"
 #include <vector>
 
-class G4VPhysicalVolume;
+class G4Box;
+
 class G4LogicalVolume;
+class G4VPhysicalVolume;
+// class G4Region;
+
 class G4Material;
+class DetectorMessenger; // NOTE: Must create this class based off StratSep code!
 class G4MultiFunctionalDetector;
 class DetectorMessenger;
+class PixelSD; // NOTE: Must create this class based off StratSep code!
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -52,35 +65,117 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     DetectorConstruction();
     virtual ~DetectorConstruction();
 
-    virtual G4VPhysicalVolume* Construct();
-    // G4LogicalVolume* ReturnVolume() const {return fScoringVolume;}
-    G4LogicalVolume* GetScoringVolume() const {return fScoringVolume;}
+  public:
 
-    std::vector<G4LogicalVolume*> GetScoringVolumeVec() const
-    {
-      return fScoringVolumeVec;
-    }
+    // void PrintPixelParameters();
+    // void SetPixelThickness(G4double);
+    // void SetPixelMaterial(G4String);
+    // void SetCeramicMaterial(G4String);
 
-    // Return the number of elements in the scoring volume vector.
-    G4int GetScoreVolVecSize() const {return fScoringVolumeVec.size();}
+  public:
+
+    // Construct the world geometry.
+    virtual G4VPhysicalVolume* ConstructWorld();
+
+    void UpdateGeometry();
 
     // Construct the sensitive detectors and electromagnetic fields through them,
     //  if desired.
     void ConstructSDandField();
 
+    const G4VPhysicalVolume* GetPixel(int i, int j)
+    {return physiMatrix[i][j];};
+
+    // // G4LogicalVolume* ReturnVolume() const {return fScoringVolume;}
+    // G4LogicalVolume* GetScoringVolume() const {return fScoringVolume;}
+    //
+    // std::vector<G4LogicalVolume*> GetScoringVolumeVec() const
+    // {
+    //   return fScoringVolumeVec;
+    // }
+    //
+    // // Return the number of elements in the scoring volume vector.
+    // G4int GetScoreVolVecSize() const {return fScoringVolumeVec.size();}
+
+  public:
+
+     G4double GetWorldSizeX()           {return WorldSizeX;};  // Return the world size parameters
+     G4double GetWorldSizeY()           {return WorldSizeY;};
+     G4double GetWorldSizeZ()           {return WorldSizeZ;};
+
+     G4double GetMatrixThickness()      {return MatrixThickness;};  // Return the matrix size parameters
+     G4double GetMatrixSizeY()          {return MatrixSizeY;};
+     G4double GetMatrixSizeX()          {return MatrixSizeX;};
+
+     G4double GetPixelThickness()      {return PixelThickness;};  // Return the pixel size parameters
+     G4double GetPixelSizeY()          {return PixelSizeY;};
+     G4double GetPixelSizeX()          {return PixelSizeX;};
+
+     const G4VPhysicalVolume* GetPhysiWorld()  {return physiWorld;};   // Return the world physical volume
+     const G4VPhysicalVolume* GetPhysiMatrix() {return physiMatrix;};  // Return the matrix physical volume
+
   private:
 
-    G4Material*        fWorldMater;
-    G4VPhysicalVolume* fPhysiWorld;
-    G4LogicalVolume* fScoringVolume;
-    std::vector<G4LogicalVolume*> fScoringVolumeVec;
+    #include "DetectorParameterDef.hh"                  // Import the model parameters
+    #include "DetectorParameterDef.icc"
+
+    // Define the world.
+    G4Box*             solidWorld;                      // Pointer to the solid world
+    G4LogicalVolume*   logicWorld;                      // Pointer to the logical world
+    G4VPhysicalVolume* physiWorld;                      // Pointer to the physical world
+
+    // Define the tumor.
+    G4Box*             solidTumor;                      // Pointer to the solid world
+    G4LogicalVolume*   logicTumor;                      // Pointer to the logical world
+    G4VPhysicalVolume* physiTumor;                      // Pointer to the physical world
+
+    // Define the body.
+    G4Box*             solidBody;                      // Pointer to the solid world
+    G4LogicalVolume*   logicBody;                      // Pointer to the logical world
+    G4VPhysicalVolume* physiBody;                      // Pointer to the physical world
+
+    // Define the scintillator pixel array.
+    G4Box*             solidScint;                     // Pointer to the solid scintillator matrix
+    G4LogicalVolume*   logicScint;                     // Pointer to the logical scintillator matrix
+    G4VPhysicalVolume*
+      physiScint[ScintNbX][ScintNbY][ScintNbM];        // Pointer to the physical scintillator matrix
+
+    // Define the collimator array.
+    G4Box*             solidCollim;                             // Pointer to the solid collimator matrix
+    G4LogicalVolume*   logicCollim;                             // Pointer to the logical collimator matrix
+    G4VPhysicalVolume*
+      physiCollim[CollimNbS][CollimNbX][CollimNbY][CollimNbM];  // Pointer to the physical collimator matrix
+
+    // Define the materials in use.
+    G4Material*        ScintMaterial;                  // Pointer to the pixel material
+    G4Material*        CollimMaterial;                 // Pointer to the collimator material
+    G4Material*        TumorMaterial;                  // Pointer to the tumor material
+    G4Material*        BodyMaterial;                   // Pointer to the body material
+    G4Material*        WorldMaterial;                  // Pointer to the world material
+
+    // G4Material*        MatrixMatrial;     // Pointer to the matrix material
+    // G4Material*        CeramicMaterial;   // Pointer to the ceramic material
+
+  private:
+
+    // DetectorMessenger* detectorMessenger;  //pointer to the detector messenger
+    PixelSD* pixelSD;  //pointer to the sensitive detector pixel
+
+    // G4Material*        fWorldMater;
+    // G4VPhysicalVolume* fPhysiWorld;
+    // G4LogicalVolume* scoringVolume;
+    // std::vector<G4LogicalVolume*> scoringVolumeVec;
 
     void DefineMaterials();
-    G4VPhysicalVolume* ConstructVolumes();
 
-    // Use of G4Cache for multi-threaded operation. Allows for storage of
-    // a seperate detector pointer per thread.
-    const G4Cache<G4MultiFunctionalDetector*> fSensitiveDetectorCache;
+    // G4VPhysicalVolume* ConstructVolumes();
+    G4VPhysicalVolume* ConstructGammaCamera();
+
+    void SetLogicalVolVisAtt();
+
+    // // Use of G4Cache for multi-threaded operation. Allows for storage of
+    // // a seperate detector pointer per thread.
+    // const G4Cache<G4MultiFunctionalDetector*> fSensitiveDetectorCache;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

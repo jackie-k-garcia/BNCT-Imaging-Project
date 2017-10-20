@@ -13,7 +13,7 @@
 #include "Randomize.hh"
 
 #include "DetectorConstruction.hh"
-#include "QGSP_BERT.hh"
+#include "QGSP_BIC_HP.hh"
 #include "ActionInitialization.hh"
 
 #ifdef G4VIS_USE
@@ -30,17 +30,20 @@ int main(int argc, char** argv)
 {
   // Define the default arguments used when you run the executable.
   G4String macroFile = "None";
-  G4String startingSeed = "1";
+  // G4String startingSeed = "1";
 
   // Parse the arguments for the executable depending on the number of
   //  arguments passed to the executable.
   if (argc > 1) macroFile = argv[1];
-  if (argc > 2) startingSeed = argv[2];
+  // if (argc > 2) startingSeed = argv[2];
 
   // Print the arguments used for the executable.
   G4cout << "Starting run with..." << G4endl << G4endl;
   G4cout << "Macro file     :" << G4endl << G4endl;
-  G4cout << "Starting seed  :" << G4endl << G4endl;
+  // G4cout << "Starting seed  :" << G4endl << G4endl;
+
+  // Initialize the random engine. POSSIBLY UPDATE ???
+  G4Random::setTheEngine(new CLHEP::RanecuEngine);
 
   // Initialize the multithreaded run manager if Geant4 is run in multithreaded
   //  mode.
@@ -50,14 +53,11 @@ int main(int argc, char** argv)
     G4RunManager* runManager = new G4RunManager;
   #endif
 
-  // Initialize the random engine. POSSIBLY UPDATE ???
-  G4Random::setTheEngine(new CLHEP::RanecuEngine);
-
-  // Convert the starting seed to an integer and feed it to the random engine.
-  unsigned startingSeedInt;
-  std::istringstream is(startingSeed);
-  is >> startingSeedInt;
-  G4Random::setTheSeed(startingSeedInt);
+  // // Convert the starting seed to an integer and feed it to the random engine.
+  // unsigned startingSeedInt;
+  // std::istringstream is(startingSeed);
+  // is >> startingSeedInt;
+  // G4Random::setTheSeed(startingSeedInt);
 
   // Instantiate the scoring manager. NECESSARY ???
   G4ScoringManager::GetScoringManager();
@@ -66,8 +66,8 @@ int main(int argc, char** argv)
   DetectorConstruction* det = new DetectorConstruction;
   runManager->SetUserInitialization(det);
 
-  // Instantiate the physics list. POSSIBLY UPDATE TO MORE ACCURATE PHYSICS LIST ???
-  runManager->SetUserInitialization(new QGSP_BERT);
+  // Instantiate the physics list.
+  runManager->SetUserInitialization(new QGSP_BIC_HP);
 
   // Set the action initialization.
   runManager->SetUserInitialization(new ActionInitialization(det));
@@ -81,6 +81,8 @@ int main(int argc, char** argv)
     visManager->Initialize();
 
   #endif
+
+  // Initialize the Geant4 kernel.
 
   // Open an UI session: It will stay open until the user types "exit" or
   //  simply uses a keyboard interrupt.
@@ -138,6 +140,13 @@ int main(int argc, char** argv)
 
     #endif
   }
+
+  // Terminate the visualization if it was used.
+  #ifdef G4VIS_USE
+
+    delete visManager;
+
+  #endif
 
   // Terminate the simulation.
   delete runManager;

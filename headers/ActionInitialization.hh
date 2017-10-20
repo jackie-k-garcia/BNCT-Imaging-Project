@@ -43,7 +43,8 @@ class ActionInitialization : public G4VUserActionInitialization
 {
   public:
 
-    ActionInitialization(DetectorConstruction*, const G4String&);
+    ActionInitialization(DetectorConstruction*);
+    // ActionInitialization(DetectorConstruction*, const G4String&);
     virtual ~ActionInitialization();
 
     virtual void BuildForMaster() const;
@@ -53,7 +54,7 @@ class ActionInitialization : public G4VUserActionInitialization
 
   private:
 
-    DetectorConstruction* fDetector;
+    DetectorConstruction* gammaCamera;
 };
 
 #endif

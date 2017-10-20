@@ -29,7 +29,7 @@
 //
 // $Id: PrimaryGeneratorAction.hh 66241 2012-12-13 18:34:42Z gunter $
 //
-// 
+//
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -39,9 +39,16 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "globals.hh"
+
 #include "G4GeneralParticleSource.hh"
 
+#include "G4SystemOfUnits.hh"
+#include "G4PhysicalConstants.hh"
+#include "G4UnitsTable.hh"
+
+class G4ParticleGun;
 class G4Event;
+class DetectorConstruction;
 class G4GeneralParticleSource;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -49,15 +56,20 @@ class G4GeneralParticleSource;
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
   public:
-  PrimaryGeneratorAction();
-  virtual ~PrimaryGeneratorAction();
 
-  virtual void GeneratePrimaries(G4Event*);
-  
+    PrimaryGeneratorAction();
+    virtual ~PrimaryGeneratorAction();
+
+    virtual void GeneratePrimaries(G4Event* anEvent);
+
+    // void SetRndmFlag(G4String val) {rndmFlag = val;}
+
   private:
-  G4GeneralParticleSource*  fParticleSource;
+
+    G4GeneralParticleSource*  fParticleSource;
+
+    G4ParticleGun*            particleGun;
+    DetectorConstruction*     Detector;         // Pointer to a random impact point
 };
 
 #endif
-
-

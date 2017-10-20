@@ -33,9 +33,9 @@
 #include "ActionInitialization.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
-#include "HistoManager.hh"
-#include "SteppingAction.hh"
 #include "EventAction.hh"
+// #include "HistoManager.hh"
+// #include "SteppingAction.hh"
 
 // #include "TrackingAction.hh"
 // #include "SteppingVerbose.hh"
@@ -44,7 +44,7 @@
 
 ActionInitialization::ActionInitialization(DetectorConstruction* detector)
  : G4VUserActionInitialization(),
-   fDetector(detector), fOutputFileSpec(outputFile)
+   gammaCamera(detector) //, fOutputFileSpec(outputFile)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -56,7 +56,9 @@ ActionInitialization::~ActionInitialization()
 
 void ActionInitialization::BuildForMaster() const
 {
-  SetUserAction(new RunAction(fOutputFileSpec));
+  // SetUserAction(new RunAction);
+
+  // SetUserAction(new RunAction(fOutputFileSpec));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -64,15 +66,17 @@ void ActionInitialization::BuildForMaster() const
 void ActionInitialization::Build() const
 {
   // Define and set a new run action.
-  RunAction* runAction = new RunAction(fOutputFileSpec);
-  SetUserAction(runAction);
+  SetUserAction(new RunAction);
+  // RunAction* runAction = new RunAction(fOutputFileSpec);
+  // SetUserAction(runAction);
 
   // Define and set a new primary generator action.
-  SetUserAction(new PrimaryGeneratorAction());
+  SetUserAction(new PrimaryGeneratorAction(gammaCamera));
 
   // Define and set a new event action.
-  EventAction* eventAction = new EventAction(runAction);
-  SetUserAction(eventAction);
+  SetUserAction(new EventAction)
+  // EventAction* eventAction = new EventAction(runAction);
+  // SetUserAction(eventAction);
 
   // Define a new histogram manager. The setup of new histograms is done with this
   //  HistoManager class instantiation.
@@ -81,7 +85,8 @@ void ActionInitialization::Build() const
   // SetUserAction(new TrackingAction(fDetector, event, histo));
 
   // Define and set a new stepping action.
-  SetUserAction(new SteppingAction(runAction, eventAction));
+  // SetUserAction(new SteppingAction)
+  // SetUserAction(new SteppingAction(runAction, eventAction));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

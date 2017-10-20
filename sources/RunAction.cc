@@ -35,9 +35,10 @@
 // #include "Run.hh"
 // #include "DetectorConstruction.hh"
 // #include "PrimaryGeneratorAction.hh"
-#include "HistoManager.hh"
+// #include "HistoManager.hh"
 
 #include "G4Run.hh"
+
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 #include "G4VVisManager.hh"
@@ -61,131 +62,153 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 RunAction::RunAction(const G4String& outputFile)
-: G4UserRunAction(),
-  fOutputFileSpec(outputFile), fEngDep(0.), fEngDepSqr(0.)
-{
-  // Create an instance of an accumulable manager.
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
+: G4UserRunAction(), runID(0)
+{}
 
-  // Register the energy deposit accumulable and the square of that quantity for
-  //   the case of only a single scoring volume.
-  accumulableManager->RegisterAccumulable(fEngDep);
-  accumulableManager->RegisterAccumulable(fEngDepSqr);
-
-  // Iterate through and register all the elements in the vectors containing the
-  //   energy deposition accumulables and the squares of those quantities in the
-  //   case of multiple scoring volumes.
-  for (int i = 0; i < 2; i++)
-  {
-    accumulableManager->RegisterAccumulable(fEngDepArr[i]);
-    accumulableManager->RegisterAccumulable(fEngDepSqrArr[i]);
-
-    // accumulableManager->RegisterAccumulable(fEngDepArr.at(i));
-    // accumulableManager->RegisterAccumulable(fEngDepSqrArr.at(i));
-  }
-}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//
+// RunAction::RunAction(const G4String& outputFile)
+// : G4UserRunAction(), runID(0)
+//   // NbOfPixelsInX(10), NbOfPixelsInY(10)
+//   // fOutputFileSpec(outputFile), fEngDep(0.), fEngDepSqr(0.)
+// {
+//   // // Create an instance of an accumulable manager.
+//   // G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
+//   //
+  // // Register the energy deposit accumulable and the square of that quantity for
+  // //   the case of only a single scoring volume.
+  // accumulableManager->RegisterAccumulable(fEngDep);
+  // accumulableManager->RegisterAccumulable(fEngDepSqr);
+  //
+  // // Iterate through and register all the elements in the vectors containing the
+  // //   energy deposition accumulables and the squares of those quantities in the
+  // //   case of multiple scoring volumes.
+  // for (int i = 0; i < 2; i++)
+  // {
+  //   accumulableManager->RegisterAccumulable(fEngDepArr[i]);
+  //   accumulableManager->RegisterAccumulable(fEngDepSqrArr[i]);
+  //
+  //   // accumulableManager->RegisterAccumulable(fEngDepArr.at(i));
+  //   // accumulableManager->RegisterAccumulable(fEngDepSqrArr.at(i));
+  // }
+// }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 RunAction::~RunAction()
-{ }
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RunAction::BeginOfRunAction()
+void RunAction::BeginOfRunAction(const G4Run* aRun)
 {
-  // Histograms
-  //
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  ((G4Run*)(aRun))->SetRunID(runID++);
 
-  // Open a ROOT file if the analysis manager is active.
-  if (analysisManager->IsActive()) analysisManager->OpenFile();
+  G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
 
-  // Save the random number store status.
-  G4RunManager::GetRunManager()->SetRandomNumberStore(false);
-  if (isMaster) G4Random::showEngineStatus();
-
-  // Reset accumulables held in the accumulable manager to their initial values.
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Reset();
+  if (G4VVisManager::GetConcreteInstance())
+  {
+    G4UImanager* UI = G4UImanager::GetUIpointer();
+    UI->ApplyCommand("/vis/scene/notifyHandlers");
+  }
 }
+
+
+  // // Histograms
+  // //
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //
+  // // Open a ROOT file if the analysis manager is active.
+  // if (analysisManager->IsActive()) analysisManager->OpenFile();
+  //
+  // // Save the random number store status.
+  // G4RunManager::GetRunManager()->SetRandomNumberStore(false);
+  // if (isMaster) G4Random::showEngineStatus();
+  //
+  // // Reset accumulables held in the accumulable manager to their initial values.
+  // G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
+  // accumulableManager->Reset();
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void RunAction::EndOfRunAction(const G4Run* aRun)
 {
+  if (G4VVisManager:;GetConcreteInstance())
+  { G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update") }
 
-  // If a visual manager exists.
-  //
-  if (G4VVisManager::GetConcreteInstance())
-  {
-    // Refreshes the visual viewer
-    G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update");
-  }
-
-  G4int numOfEvents = aRun->GetNumberOfEvent();
-  if (numOfEvents == 0) return;
-
-  // Print the number of events that occurred in the run.
-  G4cout << "Number of Events Processed: " << numOfEvents << G4endl;
-
-  // Get an instance of the analysis manager to save the histograms.
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-
-  // If the analysis manager is active, write the histograms to the ROOT file
-  //   and close it.
-  if (analysisManager->IsActive())
-  {
-    analysisManager->Write();
-    analysisManager->CloseFile();
-  }
-
-  // Merge the energy deposition accumulables.
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Merge();
-
-  // Compute dose = total energy deposit in a run and its variance
-  //
-  G4double engDep  = fEngDep.GetValue();
-  G4double engDepSqr = fEngDepSqr.GetValue();
-
-  G4double rms = engDepSqr - engDep*engDep/numOfEvents;
-  if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;
-
-  // Run conditions
-  //
-  G4cout << G4endl << G4endl << " The run consists of " << numOfEvents
-         << " particle(s)" << G4endl << G4endl;
+  G4cout << "number of event = " << aRun->GetNumberOfEvent() << G4endl
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+  // // If a visual manager exists.
+  // //
+  // if (G4VVisManager::GetConcreteInstance())
+  // {
+  //   // Refreshes the visual viewer
+  //   G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update");
+  // }
+  //
+  // G4int numOfEvents = aRun->GetNumberOfEvent();
+  // if (numOfEvents == 0) return;
+  //
+  // // Print the number of events that occurred in the run.
+  // G4cout << "Number of Events Processed: " << numOfEvents << G4endl;
+  //
+  // // Get an instance of the analysis manager to save the histograms.
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //
+  // // If the analysis manager is active, write the histograms to the ROOT file
+  // //   and close it.
+  // if (analysisManager->IsActive())
+  // {
+  //   analysisManager->Write();
+  //   analysisManager->CloseFile();
+  // }
+  //
+  // // Merge the energy deposition accumulables.
+  // G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
+  // accumulableManager->Merge();
+  //
+  // // Compute dose = total energy deposit in a run and its variance
+  // //
+  // G4double engDep  = fEngDep.GetValue();
+  // G4double engDepSqr = fEngDepSqr.GetValue();
+  //
+  // G4double rms = engDepSqr - engDep*engDep/numOfEvents;
+  // if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;
+  //
+  // // Run conditions
+  // //
+  // G4cout << G4endl << G4endl << " The run consists of " << numOfEvents
+  //        << " particle(s)" << G4endl << G4endl;
 
-void RunAction::AddEngDep(G4double& engDep)
-{
-  // Accumulate the energy deposition from the event calling this method for
-  //   the case of only one scoring volume.
-  fEngDep  += engDep;
-  fEngDepSqr += engDep * engDep;
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void RunAction::AddEngDepArr(G4double (&engDep)[2])
-{
-  // Iterate through all the scoring volumes and accumulate the energy
-  //   deposition from the event action calling this method.
-  for (int i = 0; i < 2; i++)
-  {
-    // Grab the energy deposition for the scoring volume of interest. Throw an
-    //   error if we are out of range of the energy deposition vector number
-    //   of elements. (Use of ".at(i)" in place of "[i]" ensures this error
-    //   checking.)
-    G4double engDepForI = engDep[i];
-    // engDepForI = engDep.at(i);
-
-    // Accumulate the energy deposition from the event action calling this
-    //   method for the case of multiple scoring volumes.
-    fEngDepArr[i]  += engDepForI;
-    fEngDepSqrArr[i] += engDepForI * engDepForI;
-  }
-}
+// //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//
+// void RunAction::AddEngDep(G4double& engDep)
+// {
+//   // Accumulate the energy deposition from the event calling this method for
+//   //   the case of only one scoring volume.
+//   fEngDep  += engDep;
+//   fEngDepSqr += engDep * engDep;
+// }
+//
+// //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//
+// void RunAction::AddEngDepArr(G4double (&engDep)[2])
+// {
+//   // Iterate through all the scoring volumes and accumulate the energy
+//   //   deposition from the event action calling this method.
+//   for (int i = 0; i < 2; i++)
+//   {
+//     // Grab the energy deposition for the scoring volume of interest. Throw an
+//     //   error if we are out of range of the energy deposition vector number
+//     //   of elements. (Use of ".at(i)" in place of "[i]" ensures this error
+//     //   checking.)
+//     G4double engDepForI = engDep[i];
+//     // engDepForI = engDep.at(i);
+//
+//     // Accumulate the energy deposition from the event action calling this
+//     //   method for the case of multiple scoring volumes.
+//     fEngDepArr[i]  += engDepForI;
+//     fEngDepSqrArr[i] += engDepForI * engDepForI;
+//   }
+// }
