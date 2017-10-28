@@ -38,32 +38,29 @@
 #include "globals.hh"
 
 //#include "g4root.hh"
-#include "g4root.hh"
 //#include "g4xml.hh"
+#include "g4csv.hh"
 
 // #include "Run.hh"
 #include "G4RunManager.hh"
-#include "G4LogicalVolume.hh"
-#include "vector"
-class Run;
-class DetectorConstruction;
-class G4LogicalVolume;
+#include "G4UImessenger.hh"
+
+class RunAction;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class HistoManager
 {
   public:
-    // HistoManager(DetectorConstruction* det);
+
     HistoManager();
    ~HistoManager();
 
-  private:
-    void Book();
+   void Book();
 
-    // DetectorConstruction* fDetector;
-    // G4LogicalVolume* fScoringVolume;
-    // std::vector<G4LogicalVolume*> fScoringVolume1;
+  private:
+
+    #include "DetectorParameterDef.hh"
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

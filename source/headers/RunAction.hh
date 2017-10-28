@@ -48,6 +48,8 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
+#include "G4ThreeVector.hh"
+
 #include "iomanip"
 #include <assert.h>
 #include "iostream"
@@ -87,9 +89,10 @@ class RunAction : public G4UserRunAction
     //   deposition occurs.
     virtual void EndOfRunAction(const G4Run* aRun);
 
-    inline void fillPerHit(G4ThreeVector, G4double, G4int);
-
-    inline void fillPerHit(G4int);
+    void fillPerHit(G4ThreeVector, G4double, G4int);
+    // void fillPerHit(G4ThreeVector, G4double, G4int = 0);
+    // void fillPerHit(G4ThreeVector, G4double = 0.0, G4int);
+    // void fillPerHit(G4ThreeVector = G4ThreeVector(), G4double = 0.0, G4int = 0);
 
     // void AddEngDep (G4double&);
     // void AddEngDepArr (G4double (&engDep)[2]);
@@ -108,11 +111,11 @@ class RunAction : public G4UserRunAction
     // G4int         IDinM;
     // G4int         Multiplicity;
     // G4double      PixelEnergy;
-    G4double      TotalPixelEnergy;
+    // G4double      TotalPixelEnergy;
     G4double      InitEnergy;
     G4double      totEngDep;
     G4int         EventNumber;
-    G4int         Detected;
+    // G4int         Detected;
     // G4int         FullyDetected;
     // G4int         NbOfDoubles;
 
@@ -136,83 +139,78 @@ class RunAction : public G4UserRunAction
     // G4String fOutputFileSpec;
 };
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-inline void RunAction::fillPerHit(G4ThreeVector pixLoc, G4double hitEnergy, G4int eventStep)
-{
-  static G4int EventNumber = 0;
-  // static G4int Multiplicity = 0;
-
-  // static G4double initEnergy = 0;
-  static G4double totalEngDep = 0;
-
-  // EventNumber++;
-
-  // DURING EVENT: Writing on File
-  // else
-  // {
-    // Multiplicity++;
-    //
-    // if (Multiplicity == 1) { InitEnergy=IDinX; }
-
-  TotalPixelEnergy = TotalPixelEnergy + hitEnergy;
-
-    // if (PixelEnergy > 20*keV)
-    // {
-    //   TotalPixelEnergy = TotalPixelEnergy + PixelEnergy;
-    // }
-
-    // // Print to screen the hit information.
-    // G4cout << "Initial Energy: " << InitEnergy
-    //        << " Energy: " << PixelEnergy << " Total: "
-    //        << TotalPixelEnergy << G4endl;
-
-  // }
-
-}
-
-inline void RunAction::fillPerHit(G4int eventStep)
-{
-
-  /*** Writing to Data File ***/
-
-  // BEGINNING OF EVENT: Increment event number
-  if (eventStep == -1)
-  {
-    // IDinX = 0;
-    // IDinY = 0;
-    EventNumber++;
-  }
-
-  // END OF EVENT: Writing to data file
-  else if (eventStep == 1)
-  {
-
-    // if (TotalPixelEnergy == InitEnergy) { FullyDetected++; }
-
-    // if (TotalPixelEnergy > 20*keV) { Detected++; }
-
-    // Open the data file for writing and name it.
-    outputDataFile.open('gammacameradata');
-
-    // Fill the output data file.
-    outputDataFile << " Source Photon #:   " << EventNumber                             // << G4endl
-                   << " Position:          "
-                   << pixLoc.x() << " " << pixLoc.y() << " " << pixLoc.Z()
-                   << " Energy Deposition: " << totalEngDep;                               // << G4endl
-                  //  << " Fully Detected:  " << FullyDetected;
-    // outputDataFile << "Detected: " << Detected << G4endl; << " Fully Detected: " << FullyDetected;
-
-    // Close the output data file.
-    outputDataFile.close();
-
-    /*** Reseting the variables at the end of the current event ***/
-    totalEngDep = 0;
-    // Multiplicity = 0;
-
-  }
-
-}
+// //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//
+// void RunAction::fillPerHit(G4int eventStep, G4double hitEnergy, G4ThreeVector pixLoc)
+// {
+//   static G4int EventNumber = 0;
+//   // static G4int Multiplicity = 0;
+//
+//   // static G4double initEnergy = 0;
+//   static G4double totalEngDep = 0;
+//
+//   // EventNumber++;
+//
+//   /*** Writing to Data File ***/
+//
+//   // BEGINNING OF EVENT: Increment event number
+//   if (eventStep == -1)
+//   {
+//     // IDinX = 0;
+//     // IDinY = 0;
+//     EventNumber++;
+//   }
+//
+//   // END OF EVENT: Writing to data file
+//   else if (eventStep == 1)
+//   {
+//
+//     // if (TotalPixelEnergy == InitEnergy) { FullyDetected++; }
+//
+//     // if (TotalPixelEnergy > 20*keV) { Detected++; }
+//
+//     // Open the data file for writing and name it.
+//     outputDataFile.open("gammacameradata");
+//
+//     // Fill the output data file.
+//     outputDataFile << " Source Photon #:   " << EventNumber                             // << G4endl
+//                    << " Position:          "
+//                    << pixLoc.x() << " " << pixLoc.y() << " " << pixLoc.Z()
+//                    << " Energy Deposition: " << totalEngDep;                               // << G4endl
+//                   //  << " Fully Detected:  " << FullyDetected;
+//     // outputDataFile << "Detected: " << Detected << G4endl; << " Fully Detected: " << FullyDetected;
+//
+//     // Close the output data file.
+//     outputDataFile.close();
+//
+//     /*** Reseting the variables at the end of the current event ***/
+//     totalEngDep = 0;
+//     // Multiplicity = 0;
+//
+//   }
+//
+//   // DURING EVENT: Writing on File
+//   else
+//   {
+//     // Multiplicity++;
+//     //
+//     // if (Multiplicity == 1) { InitEnergy=IDinX; }
+//
+//     totalEngDep = totalEngDep + hitEnergy;
+//
+//     // if (PixelEnergy > 20*keV)
+//     // {
+//     //   TotalPixelEnergy = TotalPixelEnergy + PixelEnergy;
+//     // }
+//
+//     // // Print to screen the hit information.
+//     // G4cout << "Initial Energy: " << InitEnergy
+//     //        << " Energy: " << PixelEnergy << " Total: "
+//     //        << TotalPixelEnergy << G4endl;
+//
+//   }
+//
+// }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

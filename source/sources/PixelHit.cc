@@ -80,28 +80,31 @@ int PixelHit::operator==(const PixelHit& right) const
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 void PixelHit::Draw()
-{
-  G4VVisManager* visManager = G4VVisManager::GetConcreteInstance();
+{}
 
-  if(visManager)
-  {
-    G4Transform3D transRotPos(hitRot, hitPos);
-
-    G4VisAttributes visAttributes;
-
-    const G4VisAttributes* volVisAttributes = pixelLogVol->GetVisAttributes();
-
-    if (pixelLogVol) visAttributes = *volVisAttributes;
-
-    G4Colour colour(1., 0., 0.);
-
-    visAttributes->SetColour(colour);
-    visAttributes->SetForceWireframe(false);
-    visAttributes->SetForceSolid(true);
-
-    visManager->Draw(*pixerlLogVol, visAttributes, transRotPos);
-  }
-}
+// void PixelHit::Draw()
+// {
+//   G4VVisManager* visManager = G4VVisManager::GetConcreteInstance();
+//
+//   if(visManager)
+//   {
+//     G4Transform3D transRotPos(hitRot, hitPos);
+//
+//     G4VisAttributes visAttributes;
+//
+//     const G4VisAttributes* volVisAttributes = pixelLogVol->GetVisAttributes();
+//
+//     if (pixelLogVol) visAttributes = *volVisAttributes;
+//
+//     G4Colour colour(1., 0., 0.);
+//
+//     visAttributes->SetColour(colour);
+//     visAttributes->SetForceWireframe(false);
+//     visAttributes->SetForceSolid(true);
+//
+//     visManager->Draw(*pixerlLogVol, visAttributes, transRotPos);
+//   }
+// }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 

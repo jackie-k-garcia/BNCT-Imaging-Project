@@ -1,5 +1,14 @@
 // File to store parameter variables for gamma camera construction.
 
+// Histogram binning/naming parameters
+G4double           engMin;
+G4double           engMax;
+
+G4int              numBins;
+
+G4String           filename;
+G4String           directory;
+
 // Sizes
 G4double           WorldSizeX;
 G4double           WorldSizeY;
@@ -28,9 +37,9 @@ G4int              PixelNbX;
 G4int              PixelNbY;
 G4int              PixelNbM;
 
-G4int              ScintNbX = 64;
-G4int              ScintNbY = 32;
-G4int              ScintNbM = 1;
+G4int              ScintNbX;
+G4int              ScintNbY;
+G4int              ScintNbM;
 
 G4int              CollimNbS;     // Collimator blade subset to be parametrized into an array
 G4int              CollimNbX;

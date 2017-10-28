@@ -94,7 +94,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 DetectorConstruction::DetectorConstruction()
-:G4VUserDetectorConstruction()
+: G4VUserDetectorConstruction()
  // solidWorld(0), logicWorld(0), physiWorld(0),
  // solidScint(0), logicScint(0), physiScint(0),
  // solidPixel(0), logicPixel(0), physiPixel(0),
@@ -184,9 +184,13 @@ void DetectorConstruction::DefineMaterials()
   BodyMaterial->AddMaterial(boron, fractionmass=boronFrac);
 
   // Defining elements needed for LSO scintillator compound
-  G4Material* Lu = nistManager->FindOrBuildMaterial("G4_Lu");
-  G4Material* Si = nistManager->FindOrBuildMaterial("G4_Si");
-  G4Material* O  = nistManager->FindOrBuildMaterial("G4_O");
+  G4Element* Lu = new G4Element("Lutetium", "Lu", z = 71., a = 174.9668*g/mole);
+  G4Element* Si = new G4Element( "Silicon", "Si", z = 14., a =   28.085*g/mole);
+  G4Element* O  = new G4Element(  "Oxygen",  "O", z = 16., a =   15.999*g/mole);
+  // G4Element* Ce = new G4Element(""
+  // G4Material* Lu = nistManager->FindOrBuildMaterial("G4_Lu");
+  // G4Material* Si = nistManager->FindOrBuildMaterial("G4_Si");
+  // G4Material* O  = nistManager->FindOrBuildMaterial("G4_O");
   G4Material* Ce = nistManager->FindOrBuildMaterial("G4_Ce");
 
   // a = 174.9668*g/mole;
@@ -204,10 +208,13 @@ void DetectorConstruction::DefineMaterials()
   // Build LSO material
   density = 7.4*g/cm3;
   G4Material* LSO = new G4Material(name="LSO", density, ncomponents=3);
-  LSO->AddElement(Lu, natoms=2);
-  LSO->AddElement(Si, natoms=1);
-  LSO->AddElement(O, natoms=5);
-  // LSO->AddElement(Ce, fractionmass=0.01);   // NOTE: This is illegal, must replace with an "natoms" designation.
+  LSO->AddElement(Lu, 2);
+  LSO->AddElement(Si, 1);
+  LSO->AddElement(O, 5);
+  // LSO->AddElement(Lu, natoms=2);
+  // LSO->AddElement(Si, natoms=1);
+  // LSO->AddElement(O, natoms=5);
+  LSO->AddMaterial(Ce, fractionmass=0.01);   // NOTE: This is illegal, must replace with an "natoms" designation.
 
   // Set the scintillator crystal material.
   ScintMaterial = LSO;
@@ -296,8 +303,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
   G4VPhysicalVolume*
     physiCollim[CollimNbS][CollimNbX][CollimNbY][CollimNbM];  // Pointer to the physical collimator matrix
 
- for (G4int w=1; w<CollimNbS; w++)
- {
+  for (G4int w=1; w<CollimNbS; w++)
+  {
     for (G4int i=1; i<CollimNbX; i++)
     {
       for (G4int j=1; j<CollimNbX; j++)
@@ -341,12 +348,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 
           G4int copyNum = i*j*k;
 
-          physiCollim[w][i][j][k] = new G4PVPlacement(transformTransRot,
-                                                      logicCollim,
-                                                      "Scintillator Array",
-                                                      physiWorld,
-                                                      false,
-                                                      0);
+          G4VPhysicalVolume* tempPixel = new G4PVPlacement(transformTransRot,
+                                                           "Scintillator Array",
+                                                           logicCollim,
+                                                           physiWorld,
+                                                           false,
+                                                           0);
+
+          physiCollim[w][i][j][k] = tempPixel;
         }
       }
     }
@@ -384,13 +393,15 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 
         G4int copyNum = i*j*k;
 
-        physiScint[i][j][k] = new G4PVPlacement(0,
-                                                scintCrystalPos,
-                                                logicScint,
-                                                "Scintillator Array",
-                                                physiWorld,
-                                                false,
-                                                0);
+        G4VPhysicalVolume* tempPixel = new G4PVPlacement(0,
+                                                         scintCrystalPos,
+                                                         "Scintillator Array",
+                                                         logicScint,
+                                                         physiWorld,
+                                                         false,
+                                                         0);
+
+        physiScint[i][j][k] = tempPixel;
 
         // physiScintPixel = dynamic_cast< G4PVPlacement* > (physiScint);
       }
@@ -458,11 +469,14 @@ void DetectorConstruction::ConstructSDandField()
 
   RunAction* runAct = new RunAction;
 
-  PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, this);
-
   G4String ROgeometryName = "PixelROGeom";
 
-  G4VReadOutGeometry* pixelRO = new PixelROGeometry(ROgeometryName);
+  PixelROGeometry* tempRO = new PixelROGeometry(ROgeometryName);
+
+  G4VReadOutGeometry* pixelRO = tempRO;
+
+  PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, tempRO);
+  // PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, this);c
 
   pixelRO->BuildROGeometry();
 

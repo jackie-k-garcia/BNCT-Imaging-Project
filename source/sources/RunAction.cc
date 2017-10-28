@@ -141,6 +141,79 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
   G4cout << "number of event = " << aRun->GetNumberOfEvent() << G4endl;
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void RunAction::fillPerHit(G4ThreeVector pixLoc = G4ThreeVector(), G4double hitEnergy = 0.0, G4int eventStep = 0)
+{
+  static G4int EventNumber = 0;
+  // static G4int Multiplicity = 0;
+
+  // static G4double initEnergy = 0;
+  static G4double totalEngDep = 0;
+
+  // EventNumber++;
+
+  /*** Writing to Data File ***/
+
+  // BEGINNING OF EVENT: Increment event number
+  if (eventStep == -1)
+  {
+    // IDinX = 0;
+    // IDinY = 0;
+    EventNumber++;
+  }
+
+  // END OF EVENT: Writing to data file
+  else if (eventStep == 1)
+  {
+
+    // if (TotalPixelEnergy == InitEnergy) { FullyDetected++; }
+
+    // if (TotalPixelEnergy > 20*keV) { Detected++; }
+
+    // Open the data file for writing and name it.
+    outputDataFile.open("gammacameradata");
+
+    // Fill the output data file.
+    outputDataFile << " Source Photon #:   " << EventNumber                             // << G4endl
+                   << " Position:          "
+                   << pixLoc.x() << " " << pixLoc.y() << " " << pixLoc.z()
+                   << " Energy Deposition: " << totalEngDep;                               // << G4endl
+                  //  << " Fully Detected:  " << FullyDetected;
+    // outputDataFile << "Detected: " << Detected << G4endl; << " Fully Detected: " << FullyDetected;
+
+    // Close the output data file.
+    outputDataFile.close();
+
+    /*** Reseting the variables at the end of the current event ***/
+    totalEngDep = 0;
+    // Multiplicity = 0;
+
+  }
+
+  // DURING EVENT: Writing on File
+  else
+  {
+    // Multiplicity++;
+    //
+    // if (Multiplicity == 1) { InitEnergy=IDinX; }
+
+    totalEngDep = totalEngDep + hitEnergy;
+
+    // if (PixelEnergy > 20*keV)
+    // {
+    //   TotalPixelEnergy = TotalPixelEnergy + PixelEnergy;
+    // }
+
+    // // Print to screen the hit information.
+    // G4cout << "Initial Energy: " << InitEnergy
+    //        << " Energy: " << PixelEnergy << " Total: "
+    //        << TotalPixelEnergy << G4endl;
+
+  }
+
+}
+
   // // If a visual manager exists.
   // //
   // if (G4VVisManager::GetConcreteInstance())

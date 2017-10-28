@@ -84,7 +84,10 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     //  if desired.
     void ConstructSDandField();
 
-    const G4VPhysicalVolume* GetScintPixel(int i, int j, int k);    {return physiScint[i][j][k];};
+    const G4VPhysicalVolume* GetScintPixel(int i, int j, int k)
+    {
+      return physiScint[i][j][k];
+    }
 
     // // G4LogicalVolume* ReturnVolume() const {return fScoringVolume;}
     // G4LogicalVolume* GetScoringVolume() const {return fScoringVolume;}
@@ -112,7 +115,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
      G4double GetScintCrystalThickness()       {return ScintCrystalThickness;};
 
      const G4VPhysicalVolume* GetPhysiWorld()      {return physiWorld;};   // Return the world physical volume
-     const G4VPhysicalVolume* GetPhysiScintArray() {return physiScint;};   // Return the matrix physical volume
+    //  const G4VPhysicalVolume* GetPhysiScintArray() {return physiScint;};   // Return the matrix physical volume
 
   private:
 

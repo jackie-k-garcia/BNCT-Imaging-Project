@@ -35,7 +35,7 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/headers/*.hh)
 # libraries.
 #
 add_executable(BNCT BNCT.cc ${sources} ${headers})
-target_link_libraries(BNCT ${Geant4_libraries})
+target_link_libraries(BNCT ${Geant4_LIBRARIES})
 
 # ------------------------------------------------------------------------------
 # Copy all the scripts/files to the build directory. This is so we can run the

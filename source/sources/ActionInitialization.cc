@@ -34,7 +34,7 @@
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
 #include "EventAction.hh"
-// #include "HistoManager.hh"
+#include "HistoManager.hh"
 // #include "SteppingAction.hh"
 
 // #include "TrackingAction.hh"
@@ -75,13 +75,15 @@ void ActionInitialization::Build() const
   SetUserAction(new PrimaryGeneratorAction);
 
   // Define and set a new event action.
-  SetUserAction(new EventAction)
+  SetUserAction(new EventAction);
   // EventAction* eventAction = new EventAction(runAction);
   // SetUserAction(eventAction);
 
   // Define a new histogram manager. The setup of new histograms is done with this
   //  HistoManager class instantiation.
-  // HistoManager* histoManager = new HistoManager();
+  HistoManager* histoManager = new HistoManager();
+
+  histoManager->Book();
 
   // SetUserAction(new TrackingAction(fDetector, event, histo));
 

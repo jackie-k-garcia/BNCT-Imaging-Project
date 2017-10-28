@@ -81,33 +81,9 @@ CMakeFiles/BNCT.dir/BNCT.cc.o.provides: CMakeFiles/BNCT.dir/BNCT.cc.o.requires
 CMakeFiles/BNCT.dir/BNCT.cc.o.provides.build: CMakeFiles/BNCT.dir/BNCT.cc.o
 
 
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o: CMakeFiles/BNCT.dir/flags.make
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc
-
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc > CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i
-
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc -o CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s
-
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires:
-
-.PHONY : CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
-
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
-	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides.build
-.PHONY : CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides
-
-CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
-
-
 CMakeFiles/BNCT.dir/sources/EventAction.cc.o: CMakeFiles/BNCT.dir/flags.make
 CMakeFiles/BNCT.dir/sources/EventAction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BNCT.dir/sources/EventAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BNCT.dir/sources/EventAction.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/EventAction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/EventAction.cc
 
 CMakeFiles/BNCT.dir/sources/EventAction.cc.i: cmake_force
@@ -127,6 +103,30 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o.provides: CMakeFiles/BNCT.dir/sourc
 .PHONY : CMakeFiles/BNCT.dir/sources/EventAction.cc.o.provides
 
 CMakeFiles/BNCT.dir/sources/EventAction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/EventAction.cc.o
+
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o: CMakeFiles/BNCT.dir/flags.make
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc > CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc -o CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires:
+
+.PHONY : CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides.build
+.PHONY : CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides
+
+CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o
 
 
 CMakeFiles/BNCT.dir/sources/PixelSD.cc.o: CMakeFiles/BNCT.dir/flags.make
@@ -153,33 +153,9 @@ CMakeFiles/BNCT.dir/sources/PixelSD.cc.o.provides: CMakeFiles/BNCT.dir/sources/P
 CMakeFiles/BNCT.dir/sources/PixelSD.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
 
 
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o: CMakeFiles/BNCT.dir/flags.make
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc
-
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc > CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.i
-
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PrimaryGeneratorAction.cc -o CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.s
-
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires:
-
-.PHONY : CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires
-
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides.build
-.PHONY : CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides
-
-CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o
-
-
 CMakeFiles/BNCT.dir/sources/PixelHit.cc.o: CMakeFiles/BNCT.dir/flags.make
 CMakeFiles/BNCT.dir/sources/PixelHit.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BNCT.dir/sources/PixelHit.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BNCT.dir/sources/PixelHit.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/PixelHit.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelHit.cc
 
 CMakeFiles/BNCT.dir/sources/PixelHit.cc.i: cmake_force
@@ -201,57 +177,57 @@ CMakeFiles/BNCT.dir/sources/PixelHit.cc.o.provides: CMakeFiles/BNCT.dir/sources/
 CMakeFiles/BNCT.dir/sources/PixelHit.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PixelHit.cc.o
 
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o: CMakeFiles/BNCT.dir/flags.make
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o: CMakeFiles/BNCT.dir/flags.make
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc > CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc > CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.i
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc -o CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc -o CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.s
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires:
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires:
 
-.PHONY : CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
+.PHONY : CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
-	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides.build
-.PHONY : CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides.build
+.PHONY : CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides
 
-CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o
+CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
 
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.o: CMakeFiles/BNCT.dir/flags.make
-CMakeFiles/BNCT.dir/sources/RunAction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/BNCT.dir/sources/RunAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/RunAction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o: CMakeFiles/BNCT.dir/flags.make
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/BNCT.dir/sources/HistoManager.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/HistoManager.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/RunAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc > CMakeFiles/BNCT.dir/sources/RunAction.cc.i
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/HistoManager.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc > CMakeFiles/BNCT.dir/sources/HistoManager.cc.i
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/RunAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc -o CMakeFiles/BNCT.dir/sources/RunAction.cc.s
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/HistoManager.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc -o CMakeFiles/BNCT.dir/sources/HistoManager.cc.s
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires:
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.requires:
 
-.PHONY : CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
+.PHONY : CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.requires
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides: CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides.build
-.PHONY : CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.provides: CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.requires
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.provides.build
+.PHONY : CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.provides
 
-CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/RunAction.cc.o
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/HistoManager.cc.o
 
 
 CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o: CMakeFiles/BNCT.dir/flags.make
 CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/ActionInitialization.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/ActionInitialization.cc
 
 CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.i: cmake_force
@@ -273,33 +249,126 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o.provides: CMakeFiles/BNCT.
 CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
 
 
+CMakeFiles/BNCT.dir/sources/RunAction.cc.o: CMakeFiles/BNCT.dir/flags.make
+CMakeFiles/BNCT.dir/sources/RunAction.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/BNCT.dir/sources/RunAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/RunAction.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc
+
+CMakeFiles/BNCT.dir/sources/RunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/RunAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc > CMakeFiles/BNCT.dir/sources/RunAction.cc.i
+
+CMakeFiles/BNCT.dir/sources/RunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/RunAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/RunAction.cc -o CMakeFiles/BNCT.dir/sources/RunAction.cc.s
+
+CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires:
+
+.PHONY : CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
+
+CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides: CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides.build
+.PHONY : CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides
+
+CMakeFiles/BNCT.dir/sources/RunAction.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/RunAction.cc.o
+
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o: CMakeFiles/BNCT.dir/flags.make
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o: /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o -c /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc > CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.i
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc -o CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.s
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires:
+
+.PHONY : CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides.build
+.PHONY : CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides
+
+CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.provides.build: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o
+
+
 # Object files for target BNCT
 BNCT_OBJECTS = \
 "CMakeFiles/BNCT.dir/BNCT.cc.o" \
-"CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o" \
 "CMakeFiles/BNCT.dir/sources/EventAction.cc.o" \
-"CMakeFiles/BNCT.dir/sources/PixelSD.cc.o" \
 "CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o" \
+"CMakeFiles/BNCT.dir/sources/PixelSD.cc.o" \
 "CMakeFiles/BNCT.dir/sources/PixelHit.cc.o" \
-"CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o" \
+"CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o" \
+"CMakeFiles/BNCT.dir/sources/HistoManager.cc.o" \
+"CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o" \
 "CMakeFiles/BNCT.dir/sources/RunAction.cc.o" \
-"CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o"
+"CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o"
 
 # External object files for target BNCT
 BNCT_EXTERNAL_OBJECTS =
 
 BNCT: CMakeFiles/BNCT.dir/BNCT.cc.o
-BNCT: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
 BNCT: CMakeFiles/BNCT.dir/sources/EventAction.cc.o
-BNCT: CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
 BNCT: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o
+BNCT: CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
 BNCT: CMakeFiles/BNCT.dir/sources/PixelHit.cc.o
-BNCT: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o
-BNCT: CMakeFiles/BNCT.dir/sources/RunAction.cc.o
+BNCT: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
+BNCT: CMakeFiles/BNCT.dir/sources/HistoManager.cc.o
 BNCT: CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
+BNCT: CMakeFiles/BNCT.dir/sources/RunAction.cc.o
+BNCT: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o
 BNCT: CMakeFiles/BNCT.dir/build.make
+BNCT: /home/yaro/Geant/geant/build/lib/libG4Tree.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4GMocren.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4visHepRep.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4RayTracer.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4VRML.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4OpenGL.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4gl2ps.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4interfaces.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4persistency.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4analysis.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4error_propagation.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4readout.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4physicslists.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4parmodels.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4FR.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4vis_management.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4modeling.so
+BNCT: /usr/lib/x86_64-linux-gnu/libSM.so
+BNCT: /usr/lib/x86_64-linux-gnu/libICE.so
+BNCT: /usr/lib/x86_64-linux-gnu/libX11.so
+BNCT: /usr/lib/x86_64-linux-gnu/libXext.so
+BNCT: /usr/lib/x86_64-linux-gnu/libGLU.so
+BNCT: /usr/lib/x86_64-linux-gnu/libGL.so
+BNCT: /usr/lib/x86_64-linux-gnu/libXmu.so
+BNCT: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+BNCT: /usr/lib/x86_64-linux-gnu/libQtGui.so
+BNCT: /usr/lib/x86_64-linux-gnu/libQtCore.so
+BNCT: /usr/local/lib/libxerces-c.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4run.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4event.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4tracking.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4processes.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4zlib.so
+BNCT: /usr/lib/x86_64-linux-gnu/libexpat.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4digits_hits.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4track.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4particles.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4geometry.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4materials.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4graphics_reps.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4intercoms.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4global.so
+BNCT: /home/yaro/Geant/geant/build/lib/libG4clhep.so
 BNCT: CMakeFiles/BNCT.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable BNCT"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable BNCT"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BNCT.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -308,14 +377,15 @@ CMakeFiles/BNCT.dir/build: BNCT
 .PHONY : CMakeFiles/BNCT.dir/build
 
 CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/BNCT.cc.o.requires
-CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
 CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/EventAction.cc.o.requires
-CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PixelSD.cc.o.requires
 CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o.requires
+CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PixelSD.cc.o.requires
 CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PixelHit.cc.o.requires
-CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
-CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
+CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o.requires
+CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/HistoManager.cc.o.requires
 CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o.requires
+CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/RunAction.cc.o.requires
+CMakeFiles/BNCT.dir/requires: CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o.requires
 
 .PHONY : CMakeFiles/BNCT.dir/requires
 

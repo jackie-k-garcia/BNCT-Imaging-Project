@@ -764,6 +764,7 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/ActionInitialization.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorParameterDef.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/EventAction.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/HistoManager.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PrimaryGeneratorAction.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/RunAction.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/sources/ActionInitialization.cc
@@ -773,9 +774,55 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Transform3D.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Transform3D.icc
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Vector3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/DualRand.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/JamesRandom.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/MTwistEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/MixMaxRng.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBinomial.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBinomial.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBit.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBit.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBreitWigner.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBreitWigner.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandChiSquare.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandChiSquare.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExpZiggurat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExponential.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExponential.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandFlat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandFlat.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGamma.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGamma.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGauss.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGauss.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussQ.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussZiggurat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGeneral.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGeneral.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandLandau.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandLandau.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoisson.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoisson.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoissonQ.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoissonQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandStudentT.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandStudentT.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Random.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Random.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandomEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandomEngine.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Randomize.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanecuEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Ranlux64Engine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanluxEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanshiEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/mixmax.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Units/PhysicalConstants.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/defs.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/memory.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/thread_local.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/AxisAngle.h
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/AxisAngle.icc
  /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/LorentzVector.h
@@ -796,18 +843,46 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4AffineTransform.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Allocator.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AllocatorPool.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisManagerState.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisUtilities.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisVerbose.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ApplicationState.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AutoLock.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BinScheme.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Cache.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4CacheDetails.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ClassificationOfNewTrack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvRNtupleManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DCofThisEvent.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DataInterpolation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4DynamicParticle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DynamicParticle.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElectronOccupancy.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Element.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElementTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElementVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Event.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4EventManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ExceptionSeverity.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Exp.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4FastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Fcn.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ForceCondition.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GPILSelection.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.hh
@@ -816,10 +891,41 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4GeneralParticleSourceData.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GeneralParticleSourceMessenger.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GeomSplitter.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H2ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H3ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4HCofThisEvent.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamElm.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamMat.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Isotope.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IsotopeVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Log.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4LogicalVolume.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4LogicalVolume.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4LorentzVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTHepRandom.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTHepRandom.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandBit.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandBit.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandExponential.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandExponential.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandFlat.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandFlat.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGamma.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGamma.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGauss.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGauss.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGaussQ.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGaussQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGeneral.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGeneral.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Material.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertiesTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertiesTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertyVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialTable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistory.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistoryPool.hh
@@ -832,19 +938,36 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4Navigator.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4OrderedTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P2ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PDefManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleMomentum.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTableIterator.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicalConstants.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsModelCatalog.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsOrderedFreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsTable.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVectorType.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryParticle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryTransformer.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryVertex.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessType.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ReferenceCountedHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Region.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Region.icc
@@ -852,26 +975,56 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4RotationMatrix.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManagerKernel.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SPSAngDistribution.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SPSEneDistribution.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SPSPosDistribution.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SPSRandomGenerator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SandiaTable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SingleParticleSource.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartTrackStack.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackedTrack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Step.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Step.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepStatus.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SteppingControl.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SteppingManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4String.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4String.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4SystemOfUnits.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleDescription.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Threading.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ThreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistoryHandle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Track.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Track.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackFastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackStack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackStatus.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingMessenger.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TrajectoryContainer.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Transform3D.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Types.hh
@@ -884,31 +1037,128 @@ CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4UnitsTable.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4UserEventAction.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UserRunAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserStackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserSteppingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserTrackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VDigiCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH3Manager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VHitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP2Manager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VPVParameterisation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VPrimaryGenerator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VProcess.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VRNtupleManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSteppingVerbose.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VTrajectory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VUserActionInitialization.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VUserEventInformation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VUserPrimaryGeneratorAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VUserTrackInformation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VVolumeMaterialScanner.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ios.hh
+ /home/yaro/Geant/geant/build/include/Geant4/Randomize.hh
+ /home/yaro/Geant/geant/build/include/Geant4/evmandefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/evtdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv_defs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/globals.hh
  /home/yaro/Geant/geant/build/include/Geant4/pwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/templates.hh
  /home/yaro/Geant/geant/build/include/Geant4/tls.hh
+ /home/yaro/Geant/geant/build/include/Geant4/tools/charp_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/chars
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cid
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cids
+ /home/yaro/Geant/geant/build/include/Geant4/tools/forit
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axes
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axis
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/base_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/histo_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/profile_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/long_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mem
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mnmx
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_binding
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_booking
+ /home/yaro/Geant/geant/build/include/Geant4/tools/num2s
+ /home/yaro/Geant/geant/build/include/Geant4/tools/press_func
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcmp
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/realloc
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/s2time
+ /home/yaro/Geant/geant/build/include/Geant4/tools/safe_cast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/scast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snpf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snums
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sout
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sprintf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sto
+ /home/yaro/Geant/geant/build/include/Geant4/tools/strip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/stype
+ /home/yaro/Geant/geant/build/include/Geant4/tools/touplow
+ /home/yaro/Geant/geant/build/include/Geant4/tools/typedefs
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vfind
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vmanip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/words
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/base_leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/basket
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch_element
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/buffer
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/date
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ibo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/icol
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/idir
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ifile
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/imutex
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/iobject
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/itree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/key
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/named
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/seek
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/tree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/wbuf
+ /home/yaro/Geant/geant/build/include/Geant4/trajectoryControl.hh
+ /home/yaro/Geant/geant/build/include/Geant4/trkdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/windefs.hh
 CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorConstruction.hh
@@ -1223,6 +1473,7 @@ CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o
 CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorParameterDef.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/EventAction.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/HistoManager.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PixelHit.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/RunAction.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorParameterDef.icc
@@ -1302,14 +1553,27 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4AffineTransform.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Allocator.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AllocatorPool.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisManagerState.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisUtilities.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisVerbose.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ApplicationState.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AutoLock.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BinScheme.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ClassificationOfNewTrack.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4CollectionNameVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvRNtupleManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DCofThisEvent.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.icc
@@ -1324,6 +1588,7 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4ExceptionSeverity.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Exp.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4FastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Fcn.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ForceCondition.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GPILSelection.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.hh
@@ -1331,8 +1596,13 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4GeomSplitter.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H2ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H3ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4HCofThisEvent.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4HCtable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamElm.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamMat.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Isotope.hh
@@ -1375,6 +1645,8 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4OrderedTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P2ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PDefManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.icc
@@ -1435,8 +1707,17 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4String.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4SystemOfUnits.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4THitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleDescription.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Threading.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ThreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.icc
@@ -1468,15 +1749,27 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4UserStackingAction.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UserSteppingAction.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UserTrackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VDigiCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH3Manager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VHit.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VHitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP2Manager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VPVParameterisation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VProcess.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VRNtupleManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VReadOutGeometry.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSDFilter.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSensitiveDetector.hh
@@ -1498,15 +1791,471 @@ CMakeFiles/BNCT.dir/sources/EventAction.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/Randomize.hh
  /home/yaro/Geant/geant/build/include/Geant4/evmandefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/evtdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv_defs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/globals.hh
  /home/yaro/Geant/geant/build/include/Geant4/pwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/templates.hh
  /home/yaro/Geant/geant/build/include/Geant4/tls.hh
+ /home/yaro/Geant/geant/build/include/Geant4/tools/charp_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/chars
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cid
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cids
+ /home/yaro/Geant/geant/build/include/Geant4/tools/forit
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axes
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axis
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/base_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/histo_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/profile_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/long_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mem
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mnmx
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_binding
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_booking
+ /home/yaro/Geant/geant/build/include/Geant4/tools/num2s
+ /home/yaro/Geant/geant/build/include/Geant4/tools/press_func
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcmp
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/realloc
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/s2time
+ /home/yaro/Geant/geant/build/include/Geant4/tools/safe_cast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/scast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snpf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snums
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sout
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sprintf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sto
+ /home/yaro/Geant/geant/build/include/Geant4/tools/strip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/stype
+ /home/yaro/Geant/geant/build/include/Geant4/tools/touplow
+ /home/yaro/Geant/geant/build/include/Geant4/tools/typedefs
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vfind
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vmanip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/words
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/base_leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/basket
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch_element
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/buffer
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/date
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ibo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/icol
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/idir
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ifile
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/imutex
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/iobject
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/itree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/key
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/named
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/seek
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/tree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/wbuf
  /home/yaro/Geant/geant/build/include/Geant4/trajectoryControl.hh
  /home/yaro/Geant/geant/build/include/Geant4/trkdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/trkgdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/windefs.hh
+CMakeFiles/BNCT.dir/sources/HistoManager.cc.o
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorParameterDef.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/HistoManager.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/RunAction.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorParameterDef.icc
+ /home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/BasicVector3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Normal3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Point3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Transform3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Transform3D.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Geometry/Vector3D.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/DualRand.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/JamesRandom.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/MTwistEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/MixMaxRng.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBinomial.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBinomial.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBit.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBit.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBreitWigner.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandBreitWigner.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandChiSquare.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandChiSquare.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExpZiggurat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExponential.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandExponential.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandFlat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandFlat.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGamma.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGamma.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGauss.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGauss.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussQ.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGaussZiggurat.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGeneral.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandGeneral.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandLandau.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandLandau.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoisson.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoisson.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoissonQ.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandPoissonQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandStudentT.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandStudentT.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Random.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Random.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandomEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RandomEngine.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Randomize.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanecuEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/Ranlux64Engine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanluxEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/RanshiEngine.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Random/mixmax.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Units/PhysicalConstants.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Units/SystemOfUnits.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/defs.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/memory.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Utility/thread_local.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/AxisAngle.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/AxisAngle.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/LorentzVector.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/LorentzVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/Rotation.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/Rotation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationInterfaces.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationInterfaces.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationX.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationX.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationY.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationY.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationZ.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/RotationZ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/ThreeVector.h
+ /home/yaro/Geant/geant/build/include/Geant4/CLHEP/Vector/ThreeVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4AffineTransform.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AffineTransform.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Allocator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AllocatorPool.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisManagerState.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisUtilities.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisVerbose.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ApplicationState.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AutoLock.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BinScheme.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ClassificationOfNewTrack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvRNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DCofThisEvent.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4DynamicParticle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DynamicParticle.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElectronOccupancy.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Element.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElementTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ElementVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Event.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4EventManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ExceptionSeverity.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Exp.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4FastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Fcn.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ForceCondition.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GPILSelection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4GeomSplitter.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H2ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H3ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HCofThisEvent.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamElm.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamMat.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Isotope.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4IsotopeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Log.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4LogicalVolume.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4LogicalVolume.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4LorentzVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTHepRandom.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTHepRandom.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandBit.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandBit.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandExponential.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandExponential.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandFlat.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandFlat.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGamma.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGamma.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGauss.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGauss.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGaussQ.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGaussQ.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGeneral.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MTRandGeneral.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Material.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertiesTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertiesTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialPropertyVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4MaterialTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistory.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistory.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationHistoryPool.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevel.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevel.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevelRep.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevelRep.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLogger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Navigator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Navigator.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4OrderedTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P2ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PDefManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleMomentum.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTableIterator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicalConstants.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsModelCatalog.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsOrderedFreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVectorType.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryParticle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryTransformer.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryVertex.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessType.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ReferenceCountedHandle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Region.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Region.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4RegularNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4RotationMatrix.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManagerKernel.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SandiaTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartTrackStack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackedTrack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Step.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Step.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StepStatus.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SteppingControl.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SteppingManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4String.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4String.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4SystemOfUnits.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleDescription.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Threading.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ThreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHandle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistoryHandle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Track.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Track.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackFastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackStack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackStatus.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingMessenger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrajectoryContainer.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Transform3D.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Types.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIcommand.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIdirectory.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UImessenger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIparameter.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UItokenNum.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UnitsTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UnitsTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserRunAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserStackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserSteppingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserTrackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VDigiCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH3Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VHitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VPVParameterisation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VProcess.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VRNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSteppingVerbose.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VTrajectory.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VUserEventInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VUserTrackInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VVolumeMaterialScanner.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ios.hh
+ /home/yaro/Geant/geant/build/include/Geant4/Randomize.hh
+ /home/yaro/Geant/geant/build/include/Geant4/evmandefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/evtdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv_defs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/geomdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/geomwdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/globals.hh
+ /home/yaro/Geant/geant/build/include/Geant4/pwdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/templates.hh
+ /home/yaro/Geant/geant/build/include/Geant4/tls.hh
+ /home/yaro/Geant/geant/build/include/Geant4/tools/charp_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/chars
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cid
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cids
+ /home/yaro/Geant/geant/build/include/Geant4/tools/forit
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axes
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axis
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/base_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/histo_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/profile_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/long_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mem
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mnmx
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_binding
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_booking
+ /home/yaro/Geant/geant/build/include/Geant4/tools/num2s
+ /home/yaro/Geant/geant/build/include/Geant4/tools/press_func
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcmp
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/realloc
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/s2time
+ /home/yaro/Geant/geant/build/include/Geant4/tools/safe_cast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/scast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snpf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snums
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sout
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sprintf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sto
+ /home/yaro/Geant/geant/build/include/Geant4/tools/strip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/stype
+ /home/yaro/Geant/geant/build/include/Geant4/tools/touplow
+ /home/yaro/Geant/geant/build/include/Geant4/tools/typedefs
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vfind
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vmanip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/words
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/base_leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/basket
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch_element
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/buffer
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/date
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ibo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/icol
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/idir
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ifile
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/imutex
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/iobject
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/itree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/key
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/named
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/seek
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/tree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/wbuf
+ /home/yaro/Geant/geant/build/include/Geant4/trajectoryControl.hh
+ /home/yaro/Geant/geant/build/include/Geant4/trkdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/windefs.hh
 CMakeFiles/BNCT.dir/sources/PixelHit.cc.o
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorParameterDef.hh
@@ -1730,8 +2479,10 @@ CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o
 CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorConstruction.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/DetectorParameterDef.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/HistoManager.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PixelHit.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PixelHitsCollection.hh
+ /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PixelROGeometry.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/PixelSD.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/headers/RunAction.hh
  /home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelSD.cc
@@ -1810,10 +2561,33 @@ CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4AffineTransform.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Allocator.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AllocatorPool.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisManagerState.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisUtilities.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AnalysisVerbose.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ApplicationState.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4AutoLock.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4AuxiliaryNavServices.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BaseFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BinScheme.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4BlockingList.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Box.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Box.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CSGSolid.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Cache.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4CacheDetails.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ClassificationOfNewTrack.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4CollectionNameVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4CsvRNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4DCofThisEvent.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4DataVector.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4DynamicParticle.hh
@@ -1822,14 +2596,26 @@ CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4Element.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ElementTable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ElementVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Event.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4EventManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ExceptionSeverity.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Exp.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4FastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Fcn.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ForceCondition.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4GPILSelection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSSolid.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4GRSVolume.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4GeomSplitter.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H2ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4H3ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4HCofThisEvent.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4HCtable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4HnManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamElm.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4IonisParamMat.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Isotope.hh
@@ -1866,13 +2652,26 @@ CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevel.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevelRep.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLevelRep.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4NavigationLogger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Navigator.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Navigator.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4Normal3D.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4NormalNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4OrderedTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P1ToolsManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4P2ToolsManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PDefManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParameterisedNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleChange.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleDefinition.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ParticleMomentum.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ParticleTableIterator.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicalConstants.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsModelCatalog.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsOrderedFreeVector.hh
@@ -1881,68 +2680,219 @@ CMakeFiles/BNCT.dir/sources/PixelSD.cc.o
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVector.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4PhysicsVectorType.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Point3D.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Polyhedron.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryParticle.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryTransformer.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4PrimaryVertex.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessManager.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ProcessType.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ProcessVector.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4ReferenceCountedHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Region.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Region.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4RegularNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ReplicaNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4RotationMatrix.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4RunManagerKernel.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SDManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SDStructure.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SandiaTable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SensitiveVolumeList.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartTrackStack.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelHeader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelNode.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SmartVoxelProxy.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4StackedTrack.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Step.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Step.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4StepPoint.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4StepStatus.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SteppingControl.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4SteppingManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4SteppingVerbose.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4String.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4String.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4SystemOfUnits.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4THitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4THnManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleDescription.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TNtupleManager.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Threading.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ThreeVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4ToolsAnalysisReader.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistory.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4TouchableHistoryHandle.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Track.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Track.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4TrackFastVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackStack.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TrackStatus.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4TrackVector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrackingMessenger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4TrajectoryContainer.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4Transform3D.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Tubs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Tubs.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4Types.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UBox.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIcommand.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIdirectory.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UImessenger.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UIparameter.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UIsession.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UItokenNum.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4USolid.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UTubs.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UnitsTable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4UnitsTable.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4UserRunAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserStackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserSteppingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4UserTrackingAction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisManager.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VAnalysisReader.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VDigiCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VFileManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VH3Manager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VHit.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VHitsCollection.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VNtupleManager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP1Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VP2Manager.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VPVParameterisation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VParticleChange.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VPhysicalVolume.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VProcess.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VRNtupleManager.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VReadOutGeometry.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSDFilter.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VSensitiveDetector.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VSolid.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4VSteppingVerbose.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VTouchable.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VTrajectory.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VUserDetectorConstruction.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VUserEventInformation.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4VUserTrackInformation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VVolumeMaterialScanner.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Visible.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4Visible.icc
+ /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.hh
+ /home/yaro/Geant/geant/build/include/Geant4/G4VoxelNavigation.icc
  /home/yaro/Geant/geant/build/include/Geant4/G4coutDestination.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4ios.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4strstreambuf.hh
  /home/yaro/Geant/geant/build/include/Geant4/G4strstreambuf.icc
+ /home/yaro/Geant/geant/build/include/Geant4/HepPolyhedron.h
  /home/yaro/Geant/geant/build/include/Geant4/Randomize.hh
+ /home/yaro/Geant/geant/build/include/Geant4/evmandefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/evtdefs.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv.hh
+ /home/yaro/Geant/geant/build/include/Geant4/g4csv_defs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/geomwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/globals.hh
  /home/yaro/Geant/geant/build/include/Geant4/pwdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/templates.hh
  /home/yaro/Geant/geant/build/include/Geant4/tls.hh
+ /home/yaro/Geant/geant/build/include/Geant4/tools/charp_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/chars
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cid
+ /home/yaro/Geant/geant/build/include/Geant4/tools/cids
+ /home/yaro/Geant/geant/build/include/Geant4/tools/forit
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axes
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/axis
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/b3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/base_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/h3d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/histo_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p1d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/p2d
+ /home/yaro/Geant/geant/build/include/Geant4/tools/histo/profile_data
+ /home/yaro/Geant/geant/build/include/Geant4/tools/long_out
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mem
+ /home/yaro/Geant/geant/build/include/Geant4/tools/mnmx
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_binding
+ /home/yaro/Geant/geant/build/include/Geant4/tools/ntuple_booking
+ /home/yaro/Geant/geant/build/include/Geant4/tools/num2s
+ /home/yaro/Geant/geant/build/include/Geant4/tools/press_func
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcmp
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/realloc
+ /home/yaro/Geant/geant/build/include/Geant4/tools/rntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/s2time
+ /home/yaro/Geant/geant/build/include/Geant4/tools/safe_cast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/scast
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snpf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/snums
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sout
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sprintf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/sto
+ /home/yaro/Geant/geant/build/include/Geant4/tools/strip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/stype
+ /home/yaro/Geant/geant/build/include/Geant4/tools/touplow
+ /home/yaro/Geant/geant/build/include/Geant4/tools/typedefs
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vfind
+ /home/yaro/Geant/geant/build/include/Geant4/tools/vmanip
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_histo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wcsv_ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/words
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/base_leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/basket
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/branch_element
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/buffer
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/date
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ibo
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/icol
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/idir
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ifile
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/imutex
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/iobject
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/itree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/key
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/leaf
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/named
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/ntuple
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/seek
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/tree
+ /home/yaro/Geant/geant/build/include/Geant4/tools/wroot/wbuf
+ /home/yaro/Geant/geant/build/include/Geant4/trajectoryControl.hh
  /home/yaro/Geant/geant/build/include/Geant4/trkdefs.hh
  /home/yaro/Geant/geant/build/include/Geant4/windefs.hh
 CMakeFiles/BNCT.dir/sources/PrimaryGeneratorAction.cc.o

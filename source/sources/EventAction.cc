@@ -58,6 +58,7 @@
 #include "G4ios.hh"
 #include "G4Event.hh"
 #include "G4RunManager.hh"
+#include "HistoManager.hh"
 
 #include "G4PhysicalConstants.hh"
 #include "G4SystemOfUnits.hh"
@@ -66,7 +67,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "G4ThreeVector"
+#include "G4ThreeVector.hh"
 
 using namespace std;
 
@@ -81,9 +82,7 @@ EventAction::EventAction()
   // printModulo(10000)
   // fRunAction(runAction) //, fEngDep(0.), fEngDepArr({0.})
 {
-
-  #include "DetectorParameterDef.hh"                  // Import the model parameters
-  #include "DetectorParameterDef.icc"
+  // #include "DetectorParameterDef.icc"
 
   // eventMessenger = new EventActionMessenger(this);
 }
@@ -99,6 +98,23 @@ EventAction::~EventAction()
 
 void EventAction::BeginOfEventAction(const G4Event* currentEvent)
 {
+
+  // G4int totIDNum = PMTNbX*PMTNbY*PMTNbZ;
+
+  // G4int idArray[PMTNbX][PMTNbY][PMTNbZ] = 0;
+
+  // for (int i=0; i<PixelNbX; i++)
+  // {
+  //   for (int j=0; j<PixelNbY; j++)
+  //   {
+  //     for (int k=0; k<PixelNbM; k++)
+  //     {
+  //     }
+  //   }
+  // }
+
+  // engDepArray[xLoc][yLoc][mLoc]
+
   // Get the event ID number of the current event.
   G4int eventNum = currentEvent->GetEventID();
 
@@ -130,6 +146,21 @@ void EventAction::BeginOfEventAction(const G4Event* currentEvent)
 
 void EventAction::EndOfEventAction(const G4Event* currentEvent)
 {
+  #include "DetectorParameterDef.icc"
+
+  G4double engDepArray[PMTNbX][PMTNbY][PMTNbM];
+
+  for (int i=0; i<PixelNbX; i++)
+  {
+    for (int j=0; j<PixelNbY; j++)
+    {
+      for (int k=0; k<PixelNbM; k++)
+      {
+        engDepArray[i][j][k] = 0.0;
+      }
+    }
+  }
+
   // Get the current trajectory container.
   G4TrajectoryContainer* trajectoryContainer = currentEvent->GetTrajectoryContainer();
 
@@ -151,6 +182,19 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
   //  event if the hits collection of the event is nonempty.
   if (HCE) { PHC = (PixelHitsCollection*)(HCE->GetHC(pixelCollID)); }
 
+  // for (int i=0; i<PixelNbX; i++)
+  // {
+  //   for (int j=0; j<PixelNbY; j++)
+  //   {
+  //     for (int k=0; k<PixelNbM; k++)
+  //     {
+  //       idIterator++;
+  //
+  //       idArray[i][j][k] = idIterator;
+  //     }
+  //   }
+  // }
+
   // Sum up the energy depositions and track lengths of the photon as it
   //  scatters through the matrix if the pixel hits collection is nonempty, aka.
   //  if the event hits collection is nonempty.
@@ -163,12 +207,12 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
     G4double totEngDepPix = 0.; //, totLPix=0;
 
     // Create an array to store all the energy depositions of the hits in the hits collection.
-    G4double engDepPix[numHits];
+    G4double engDepHits[numHits];
 
     // Initialize the deposited energy to zero for each hit.
     for (G4int i=0; i<numHits; i++)
     {
-      engDepPix[i] = 0.0;
+      engDepHits[i] = 0.0;
     }
 
     // Initialize the deposited energy to zero for each hit.
@@ -178,13 +222,21 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
 
       if (engStep > 0.0)
       {
-        totEngDepPix += (*PHC)[i]->GetEngDep() / GeV;
+        // totEngDepPix += engStep;
 
-        G4ThreeVector pixLoc = (*PHC)[i]->GetPixelLoc();
+        G4ThreeVector locTemp = (*PHC)[i]->GetPixelLoc();
 
-        G4Threevector hitPos = (*PHC)[i]->GetHitPos();
+        G4ThreeVector* pixLoc = &locTemp;
 
-        engDepPix[pixLoc] += (*PHC)[i]->GetEngDep() / GeV;
+        G4int xLoc = pixLoc->x();
+        G4int yLoc = pixLoc->y();
+        G4int mLoc = pixLoc->z();
+
+        engDepArray[xLoc][yLoc][mLoc] += engStep;
+
+        G4ThreeVector hitPos = (*PHC)[i]->GetHitPos();
+
+        // engDepPix[i] += (*PHC)[i]->GetEngDep() / GeV;
       }
     }
 
@@ -193,6 +245,27 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
     //   totEngDepPixel += (*PHC)[i]->GetEdepPix();
     //   // totLPix += (*PHC)[i]->GetTrakPix();
     // }
+  }
+
+  //
+  // Fill the histograms with the event information.
+  //
+  G4int idIterator = 0;
+
+  for (int i=0; i<PixelNbX; i++)
+  {
+    for (int j=0; j<PixelNbY; j++)
+    {
+      for (int k=0; k<PixelNbM; k++)
+      {
+        idIterator++;
+
+        G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+
+        analysisManager->FillH1(idIterator, engDepArray[i][j][k]);
+
+      }
+    }
   }
 
   // // Obtain the event ID so we can add it's energy deposition to the

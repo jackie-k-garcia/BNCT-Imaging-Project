@@ -1,5 +1,16 @@
 // File to store parameter values for gamma camera construction.
 
+#include "DetectorParameterDef.hh"
+
+// Histogram binning/naming parameters
+engMin = 0.0 * keV;
+engMax = 3000.0 * keV;
+
+numBins = 1000;
+
+filename  = "data";
+directory = "/data";
+
 // Sizes
 WorldSizeX = 50.0*m;
 WorldSizeY = 50.0*m;

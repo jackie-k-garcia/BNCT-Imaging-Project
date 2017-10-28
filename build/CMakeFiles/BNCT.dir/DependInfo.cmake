@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/ActionInitialization.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/ActionInitialization.cc.o"
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/DetectorConstruction.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/DetectorConstruction.cc.o"
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/EventAction.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/EventAction.cc.o"
+  "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/HistoManager.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/HistoManager.cc.o"
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelHit.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/PixelHit.cc.o"
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelROGeometry.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/PixelROGeometry.cc.o"
   "/home/yaro/Geant/BNCT-Imaging-Project/source/sources/PixelSD.cc" "/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir/sources/PixelSD.cc.o"

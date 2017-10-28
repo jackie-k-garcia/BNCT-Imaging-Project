@@ -288,6 +288,33 @@ sources/EventAction.cc.s:
 	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/EventAction.cc.s
 .PHONY : sources/EventAction.cc.s
 
+sources/HistoManager.o: sources/HistoManager.cc.o
+
+.PHONY : sources/HistoManager.o
+
+# target to build an object file
+sources/HistoManager.cc.o:
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/HistoManager.cc.o
+.PHONY : sources/HistoManager.cc.o
+
+sources/HistoManager.i: sources/HistoManager.cc.i
+
+.PHONY : sources/HistoManager.i
+
+# target to preprocess a source file
+sources/HistoManager.cc.i:
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/HistoManager.cc.i
+.PHONY : sources/HistoManager.cc.i
+
+sources/HistoManager.s: sources/HistoManager.cc.s
+
+.PHONY : sources/HistoManager.s
+
+# target to generate assembly for a file
+sources/HistoManager.cc.s:
+	$(MAKE) -f CMakeFiles/BNCT.dir/build.make CMakeFiles/BNCT.dir/sources/HistoManager.cc.s
+.PHONY : sources/HistoManager.cc.s
+
 sources/PixelHit.o: sources/PixelHit.cc.o
 
 .PHONY : sources/PixelHit.o
@@ -449,6 +476,9 @@ help:
 	@echo "... sources/EventAction.o"
 	@echo "... sources/EventAction.i"
 	@echo "... sources/EventAction.s"
+	@echo "... sources/HistoManager.o"
+	@echo "... sources/HistoManager.i"
+	@echo "... sources/HistoManager.s"
 	@echo "... sources/PixelHit.o"
 	@echo "... sources/PixelHit.i"
 	@echo "... sources/PixelHit.s"

@@ -98,7 +98,7 @@ class PixelHit : public G4VHit
     // }
 
     // Set the parametrized coordinates of the pixel hit.
-    inline void SetPixelLoc(G4ThreeVector xyz) {pixLoc = xyz;}
+    inline void SetPixelLoc(G4int x, G4int y, G4int z) {pixLoc.set(x, y, z);}
 
     // Obtain the parametrized coordinates of the pixel hit.
     inline G4ThreeVector GetPixelLoc() {return pixLoc;}
