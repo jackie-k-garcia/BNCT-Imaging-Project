@@ -80,7 +80,7 @@
 #include "G4AutoDelete.hh"
 
 // #include "G4SDParticleFilter.hh"
-// #include "G4MultiFunctionalDetector.hh"
+#include "G4MultiFunctionalDetector.hh"
 // #include "G4VPrimitiveScorer.hh"
 // #include "G4PSCellFlux.hh"
 
@@ -100,11 +100,6 @@ DetectorConstruction::DetectorConstruction()
  // solidPixel(0), logicPixel(0), physiPixel(0),
  // PixelMaterial(0), CeramicMaterial(0), WorldMaterial(0)
 {
-  #include "DetectorParameterDef.icc"
-
-  G4VPhysicalVolume*
-    physiScint[ScintNbX][ScintNbY][ScintNbM];        // Pointer to the physical scintillator matrix
-
   // detectorMessenger = new DetectorMessenger(this);
 }
 
@@ -123,7 +118,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   DefineMaterials();
 
-  ConstructSDandField();
+  // ConstructSDandField();
 
   // return fWorldPhysVol;
   return ConstructWorld();
@@ -186,7 +181,7 @@ void DetectorConstruction::DefineMaterials()
   // Defining elements needed for LSO scintillator compound
   G4Element* Lu = new G4Element("Lutetium", "Lu", z = 71., a = 174.9668*g/mole);
   G4Element* Si = new G4Element( "Silicon", "Si", z = 14., a =   28.085*g/mole);
-  G4Element* O  = new G4Element(  "Oxygen",  "O", z = 16., a =   15.999*g/mole);
+  G4Element* O  = new G4Element(  "Oxygen",  "O", z = 16., a =   16.0*g/mole);
   // G4Element* Ce = new G4Element(""
   // G4Material* Lu = nistManager->FindOrBuildMaterial("G4_Lu");
   // G4Material* Si = nistManager->FindOrBuildMaterial("G4_Si");
@@ -214,7 +209,7 @@ void DetectorConstruction::DefineMaterials()
   // LSO->AddElement(Lu, natoms=2);
   // LSO->AddElement(Si, natoms=1);
   // LSO->AddElement(O, natoms=5);
-  LSO->AddMaterial(Ce, fractionmass=0.01);   // NOTE: This is illegal, must replace with an "natoms" designation.
+  // LSO->AddMaterial(Ce, fractionmass=0.01);   // NOTE: This is illegal, must replace with an "natoms" designation.
 
   // Set the scintillator crystal material.
   ScintMaterial = LSO;
@@ -224,6 +219,8 @@ void DetectorConstruction::DefineMaterials()
 
 G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 {
+  #include "DetectorParameterDef.icc"
+
   //
   // World
   //
@@ -258,8 +255,16 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
                                    BodyMaterial,
                                    "Body");
 
-  physiBody = new G4PVPlacement(0,
-                                G4ThreeVector(),
+  G4double rotAngle = halfpi * radian;
+
+  G4RotationMatrix rotMat = G4RotationMatrix();
+  rotMat.rotateY(rotAngle);
+
+  G4ThreeVector bodyPosition = G4ThreeVector();
+
+  G4Transform3D transformTransRot = G4Transform3D(rotMat, bodyPosition);
+
+  physiBody = new G4PVPlacement(transformTransRot,
                                 logicBody,
                                 "Body",
                                 logicWorld,
@@ -280,13 +285,18 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
                                    TumorMaterial,
                                    "Tumor");
 
-  physiTumor = new G4PVPlacement(0,
-                                 TumorDisplacement,
+  transformTransRot = G4Transform3D(rotMat, TumorDisplacement);
+
+  physiTumor = new G4PVPlacement(transformTransRot,
                                  logicTumor,
                                  "Tumor",
                                  logicBody,
                                  false,
                                  0);
+
+  //  G4cout << "Tumor position: " << TumorDisplace;
+
+   G4int copyNum = 0;
 
   //
   // Collimator Blade Array
@@ -300,8 +310,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
                                    CollimMaterial,
                                    "Collimator Array");
 
-  G4VPhysicalVolume*
-    physiCollim[CollimNbS][CollimNbX][CollimNbY][CollimNbM];  // Pointer to the physical collimator matrix
+  // G4VPhysicalVolume*
+  //   physiCollim[CollimNbS][CollimNbX][CollimNbY][CollimNbM];  // Pointer to the physical collimator matrix
 
   for (G4int w=1; w<CollimNbS; w++)
   {
@@ -311,11 +321,13 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
       {
         for (G4int k=1; k<CollimNbM; k++)
         {
+          copyNum++;
+
           // Define the rotation angle for the collimator subset as half-pi radians.
-          G4double rotAngle = w * halfpi * radian;
+          rotAngle = w * halfpi * radian;
 
           // Define the rotation matrix, with a half-pi rotation per element of the parametrized subset.
-          G4RotationMatrix rotMat = G4RotationMatrix();
+          rotMat = G4RotationMatrix();
           rotMat.rotateZ(rotAngle);
 
           // Define the length at which to rotate from the pixel center.
@@ -327,17 +339,19 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 
           G4double xPos, yPos, zPos;
 
-          xPos =  CollimBladeWidth * (0.50 + i) -  CollimArrayWidth/2 + transRotVec.x();
-          yPos = CollimBladeHeight * (0.50 + j) - CollimArrayHeight/2 + transRotVec.y();
-          zPos = CollimArrayDisplacement;
+          // xPos = CollimBladeWidth * (0.50 + i) + transRotVec.x();
+          // yPos = CollimArrayDisplacement;
+          // zPos = CollimBladeHeight * (0.50 + j) + transRotVec.z();
+
+          xPos = CollimBladeWidth * (0.50 + i) -  CollimArrayWidth/2 + transRotVec.x();
+          yPos = CollimArrayDisplacement;
+          zPos = CollimBladeHeight * (0.50 + j) - CollimArrayHeight/2 + transRotVec.z();
 
           // Define the translation vector, accounting for translation in rotation.
-          G4ThreeVector collimBladePos(xPos,
-                                       yPos,
-                                       zPos);
+          G4ThreeVector collimBladePos(xPos, yPos, zPos);
 
           // Define a 3D transform to encompass the translation and rotation.
-          G4Transform3D transformTransRot = G4Transform3D(rotMat, collimBladePos);
+          transformTransRot = G4Transform3D(rotMat, collimBladePos);
 
           // // Account for translational rotation.
           // G4double newX, newY, newZ;
@@ -346,16 +360,24 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
           // newZ = collimBladePos.z() * transRotVec.z();
           // collimBladePos->set(newX, newY, newZ)
 
-          G4int copyNum = i*j*k;
+          // G4int copyNum = i*j*k;
 
-          G4VPhysicalVolume* tempPixel = new G4PVPlacement(transformTransRot,
-                                                           "Scintillator Array",
-                                                           logicCollim,
-                                                           physiWorld,
-                                                           false,
-                                                           0);
 
-          physiCollim[w][i][j][k] = tempPixel;
+          new G4PVPlacement(transformTransRot,
+                            "Scintillator Array",
+                            logicCollim,
+                            physiWorld,
+                            false,
+                            copyNum);
+
+          // G4VPhysicalVolume* tempPixel = new G4PVPlacement(transformTransRot,
+          //                                                  "Scintillator Array",
+          //                                                  logicCollim,
+          //                                                  physiWorld,
+          //                                                  false,
+          //                                                  copyNum);
+
+          // physiCollim[w][i][j][k] = tempPixel;
         }
       }
     }
@@ -373,35 +395,50 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
                                    ScintMaterial,
                                    "Scintillator Array");
 
+  // G4VPhysicalVolume*
+  //   physiScint[ScintNbX][ScintNbY][ScintNbM];        // Pointer to the physical scintillator matrix
+
+  copyNum = 0;
+
   for (G4int i=0; i<ScintNbX; i++)
   {
     for (G4int j=0; j<ScintNbX; j++)
     {
       for (G4int k=0; k<ScintNbM; k++)
       {
+        copyNum++;
+
         G4double xPos, yPos, zPos;
 
+        // xPos = ScintCrystalWidth  * (0.50 + j);
+        // yPos = ScintArrayDisplacement;
+        // zPos = ScintCrystalHeight * (0.50 + i);
+
         xPos = ScintCrystalWidth  * (0.50 + j) - ScintArrayWidth/2;
+        yPos = ScintArrayDisplacement;
+        zPos = ScintCrystalHeight * (0.50 + i) - ScintArrayHeight/2;
 
-        yPos = ScintCrystalHeight * (0.50 + i) - ScintArrayHeight/2;
+        G4ThreeVector scintCrystalPos(xPos, yPos, zPos);
 
-        zPos = ScintArrayDisplacement;
+        // G4int copyNum = i*j*k;
 
-        G4ThreeVector scintCrystalPos(xPos,
-                                      yPos,
-                                      zPos);
+        new G4PVPlacement(0,
+                          scintCrystalPos,
+                          "Scintillator Array",
+                          logicScint,
+                          physiWorld,
+                          false,
+                          copyNum);
 
-        G4int copyNum = i*j*k;
+        // G4VPhysicalVolume* tempPixel = new G4PVPlacement(0,
+        //                                                  scintCrystalPos,
+        //                                                  "Scintillator Array",
+        //                                                  logicScint,
+        //                                                  physiWorld,
+        //                                                  false,
+        //                                                  copyNum);
 
-        G4VPhysicalVolume* tempPixel = new G4PVPlacement(0,
-                                                         scintCrystalPos,
-                                                         "Scintillator Array",
-                                                         logicScint,
-                                                         physiWorld,
-                                                         false,
-                                                         0);
-
-        physiScint[i][j][k] = tempPixel;
+        // physiScint[i][j][k] = tempPixel;
 
         // physiScintPixel = dynamic_cast< G4PVPlacement* > (physiScint);
       }
@@ -409,7 +446,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
   }
 
   // Set the visibility of the world and it's logical volumes.
-  SetLogicalVolVisAtt();
+  // SetLogicalVolVisAtt();
 
   // Return the physical world
   return physiWorld;
@@ -423,36 +460,36 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 
 void DetectorConstruction::SetLogicalVolVisAtt()
 {
-  // Make world invisible
-  logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
-
-  // Color code body lightly
-  G4VisAttributes* bodyVisAtt = new G4VisAttributes(G4Colour(0.0, 0.0, 0.2));
-
-  bodyVisAtt->SetVisibility(true);
-
-  logicBody->SetVisAttributes(bodyVisAtt);
-
-  // Color code tumor dark
-  G4VisAttributes* tumorVisAtt = new G4VisAttributes(G4Colour(0.0, 1.0, 0.0));
-
-  tumorVisAtt->SetVisibility(true);
-
-  logicTumor->SetVisAttributes(tumorVisAtt);
-
-  // Color code scintillator
-  G4VisAttributes* scintVisAtt = new G4VisAttributes(G4Colour(0.1, 0.0, 0.1));
-
-  scintVisAtt->SetVisibility(true);
-
-  logicScint->SetVisAttributes(scintVisAtt);
-
-  // Make collimator as dark as possible
-  G4VisAttributes* collimVisAtt = new G4VisAttributes(G4Colour(0.0, 0.0, 0.0));
-
-  collimVisAtt->SetVisibility(true);
-
-  logicCollim->SetVisAttributes(collimVisAtt);
+  // // Make world invisible
+  // logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
+  //
+  // // Color code body lightly
+  // G4VisAttributes* bodyVisAtt = new G4VisAttributes(G4Colour(0.0, 0.0, 0.2));
+  //
+  // bodyVisAtt->SetVisibility(true);
+  //
+  // logicBody->SetVisAttributes(bodyVisAtt);
+  //
+  // // Color code tumor dark
+  // G4VisAttributes* tumorVisAtt = new G4VisAttributes(G4Colour(0.0, 1.0, 0.0));
+  //
+  // tumorVisAtt->SetVisibility(true);
+  //
+  // logicTumor->SetVisAttributes(tumorVisAtt);
+  //
+  // // Color code scintillator
+  // G4VisAttributes* scintVisAtt = new G4VisAttributes(G4Colour(0.1, 0.0, 0.1));
+  //
+  // scintVisAtt->SetVisibility(true);
+  //
+  // logicScint->SetVisAttributes(scintVisAtt);
+  //
+  // // Make collimator as dark as possible
+  // G4VisAttributes* collimVisAtt = new G4VisAttributes(G4Colour(0.0, 0.0, 0.0));
+  //
+  // collimVisAtt->SetVisibility(true);
+  //
+  // logicCollim->SetVisAttributes(collimVisAtt);
 }
 
 // //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -467,24 +504,30 @@ void DetectorConstruction::ConstructSDandField()
 
   G4String pixelSDname = "/pixel";
 
-  RunAction* runAct = new RunAction;
+  // RunAction* runAct = new RunAction;
 
   G4String ROgeometryName = "PixelROGeom";
 
-  PixelROGeometry* tempRO = new PixelROGeometry(ROgeometryName);
+  G4VReadOutGeometry* pixelRO = new PixelROGeometry(ROgeometryName);
 
-  G4VReadOutGeometry* pixelRO = tempRO;
-
-  PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, tempRO);
+  PixelSD* pixelSD = new PixelSD(pixelSDname);
+  // G4MultiFunctionalDetector* pixelSD = new G4MultiFunctionalDetector("MyDetector");
+  // PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, tempRO);
   // PixelSD* pixelSD = new PixelSD(pixelSDname, runAct, this);c
 
-  pixelRO->BuildROGeometry();
+  // pixelRO->BuildROGeometry();
+  // //
+  // pixelSD->SetROgeometry(pixelRO);
 
-  pixelSD->SetROgeometry(pixelRO);
+  if (!SD_manager -> FindSensitiveDetector(pixelSDname, false))
+  {
+    // SD_manager->AddNewDetector(sensitiveDetector);
+    SD_manager->AddNewDetector(pixelSD);
 
-  SD_manager->AddNewDetector(pixelSD);
-
-  logicScint->SetSensitiveDetector(pixelSD);
+    // logicWorld->SetSensitiveDetector(sensitiveDetector);
+    logicScint->SetSensitiveDetector(pixelSD);
+    // logicScint->SetSensitiveDetector(pixelSD);
+  }
 }
 
 // void DetectorConstruction::ConstructSDandField()

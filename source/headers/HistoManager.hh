@@ -37,9 +37,9 @@
 
 #include "globals.hh"
 
-//#include "g4root.hh"
-//#include "g4xml.hh"
-#include "g4csv.hh"
+#include "g4root.hh"
+// #include "g4xml.hh"
+// #include "g4csv.hh"
 
 // #include "Run.hh"
 #include "G4RunManager.hh"
@@ -58,7 +58,19 @@ class HistoManager
 
    void Book();
 
+   void Save();
+
+  //  auto analysisManager = G4AnalysisManager::Instance();
+
+   void FillHisto(G4int, G4double);
+
   private:
+
+    // Initialize the histograms.
+    using G4AnalysisManager = G4RootAnalysisManager;
+
+    G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+    // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
     #include "DetectorParameterDef.hh"
 };

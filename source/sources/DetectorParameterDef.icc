@@ -8,29 +8,29 @@ engMax = 3000.0 * keV;
 
 numBins = 1000;
 
-filename  = "data";
+filename  = "dataBNCT";
 directory = "/data";
 
 // Sizes
-WorldSizeX = 50.0*m;
-WorldSizeY = 50.0*m;
-WorldSizeZ = 50.0*m;
+WorldSizeX = 10.0*m;
+WorldSizeY = 10.0*m;
+WorldSizeZ = 10.0*m;
 
 TumorDiameter     =  1*cm;
 TumorLength       =  5*cm;
 TumorDisplacement =  G4ThreeVector(0.0, 10.0*cm, 0.0);
 
-BodyDiameter = 0.25*m;
-BodyLength   =  1.5*m;
+BodyDiameter = 30.0*cm;
+BodyLength   = 1.5*m;
 
 ScintCrystalHeight    = 20.0*mm;
-ScintCrystalWidth     = 10.0*mm;
+ScintCrystalWidth     = 20.0*mm;
 ScintCrystalThickness = 30.0*mm;
 
 // Note: Must change collimator dimensions later for microcast design.
-CollimBladeHeight     = 20.0*mm;
+CollimBladeHeight     = 1.5*mm;
 CollimBladeWidth      = 1.5*mm;
-CollimBladeThickness  = 30.0*mm;
+CollimBladeThickness  = 7.0*mm;
 
 PMTPixelDiameter      = 15.0*mm;
 PMTPixelThickness     = 0.01*mm;
@@ -44,11 +44,6 @@ ScintNbX = PixelNbX;
 ScintNbY = PixelNbY / 2;
 ScintNbM = PixelNbM;
 
-CollimNbS = 4;    // 4 pieces of the subset to parametrize
-CollimNbX = PixelNbX;
-CollimNbY = PixelNbY;
-CollimNbM = PixelNbM;
-
 PMTNbX = PixelNbX;
 PMTNbY = PixelNbY;
 PMTNbM = PixelNbM;
@@ -59,13 +54,18 @@ ScintArrayHeight    = ScintNbY *  ScintCrystalWidth;
 ScintArrayThickness = ScintCrystalThickness;
 
 CollimArrayWidth     = CollimNbX * CollimBladeHeight;
-CollimArrayHeight    = CollimNbY *  CollimBladeWidth;
+CollimArrayHeight    = CollimNbY * CollimBladeWidth;
 CollimArrayThickness = CollimBladeThickness;
+
+CollimNbS = 4;    // 4 pieces of the subset to parametrize
+CollimNbX = PixelNbX * CollimBladeHeight / ScintCrystalHeight;
+CollimNbY = PixelNbY * CollimBladeWidth / ScintCrystalWidth;
+CollimNbM = PixelNbM;
 
 PMTArrayWidth       = ScintArrayWidth;
 PMTArrayHeight      = ScintArrayHeight;
 PMTArrayThickness   = ScintArrayThickness;
 
-ScintArrayDisplacement  = 0.75*m;
+ScintArrayDisplacement  = 12.0*cm + BodyDiameter/2;
 CollimArrayDisplacement = ScintArrayDisplacement - 0.5 * (ScintArrayThickness + CollimArrayThickness);
 PMTArrayDisplacement    = ScintArrayDisplacement + 0.5 * (ScintArrayThickness + PMTArrayThickness);

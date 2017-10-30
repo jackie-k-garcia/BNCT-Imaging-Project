@@ -5,6 +5,7 @@
 #include "PixelHitsCollection.hh"
 
 #include "globals.hh"
+
 #include "RunAction.hh"
 #include "PixelHit.hh"
 
@@ -16,7 +17,7 @@
 
 class G4ProcessVector;
 class DetectorConstruction;
-class PixelROGeometry;
+// class PixelROGeometry;
 class G4HCofThisEvent;
 class G4Step;
 class G4TouchableHistory;
@@ -25,13 +26,14 @@ class PixelSD : public G4VSensitiveDetector
 {
   public:
 
-    PixelSD(G4String name, RunAction*, PixelROGeometry*);
+    PixelSD(G4String name); //, RunAction*);
+    // PixelSD(G4String name, RunAction*, PixelROGeometry*);
     // PixelSD(G4String name, RunAction*, DetectorConstruction*);
     ~PixelSD();
 
-    void Initialize(G4HCofThisEvent* HCE);
-    G4bool ProcessHits(G4Step* aStep, G4TouchableHistory* ROhist);
-    void EndOfEvent(G4HCofThisEvent* HCE);
+    virtual void Initialize(G4HCofThisEvent* HCE);
+    virtual G4bool ProcessHits(G4Step* aStep, G4TouchableHistory* ROhist);
+    // void EndOfEvent(G4HCofThisEvent* HCE);
 
     // void clear();
     // void DrawAll();
@@ -48,7 +50,7 @@ class PixelSD : public G4VSensitiveDetector
     // G4ThreeVector pixLoc;
     DetectorConstruction* gammaCamera;
 
-    PixelROGeometry* PMTmtx;
+    // PixelROGeometry* PMTmtx;
 
     G4int HCid;
 

@@ -12,14 +12,22 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
+#include "G4Circle.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4ThreadLocal G4Allocator<PixelHit>* PixelHitAllocator = 0;
+G4ThreadLocal G4Allocator<PixelHit>* PixelHitAllocator;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PixelHit::PixelHit()
-: G4VHit(), pixelLogVol(0)
+: G4VHit(),
+  engDepPix(0.0),
+  hitPos(G4ThreeVector()),
+  pixLoc(G4ThreeVector()),
+  hitStart(G4ThreeVector()),
+  hitRot(G4RotationMatrix()),
+  pixelLogVol(nullptr)
 {}
 
 // PixelHit::PixelHit(G4LogicalVolume* logVol, G4double x, G4double y)
@@ -56,8 +64,8 @@ PixelHit::PixelHit(const PixelHit& right)
 
 const PixelHit& PixelHit::operator=(const PixelHit& right)
 {
-  // Include the default behavior of a hit "=" overloaded operator.
-  G4VHit::operator=(right);
+  // // Include the default behavior of a hit "=" overloaded operator.
+  // G4VHit::operator=(right);
 
   // Initialize the hit information parameters.
   engDepPix   = right.engDepPix;
@@ -74,37 +82,49 @@ const PixelHit& PixelHit::operator=(const PixelHit& right)
 
 int PixelHit::operator==(const PixelHit& right) const
 {
-  return ((hitPos == right.hitPos) && (engDepPix == right.engDepPix));
+  return ((pixLoc == right.pixLoc) && (engDepPix == right.engDepPix));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-void PixelHit::Draw()
-{}
-
 // void PixelHit::Draw()
-// {
-//   G4VVisManager* visManager = G4VVisManager::GetConcreteInstance();
-//
-//   if(visManager)
-//   {
-//     G4Transform3D transRotPos(hitRot, hitPos);
-//
-//     G4VisAttributes visAttributes;
-//
-//     const G4VisAttributes* volVisAttributes = pixelLogVol->GetVisAttributes();
-//
-//     if (pixelLogVol) visAttributes = *volVisAttributes;
-//
-//     G4Colour colour(1., 0., 0.);
-//
-//     visAttributes->SetColour(colour);
-//     visAttributes->SetForceWireframe(false);
-//     visAttributes->SetForceSolid(true);
-//
-//     visManager->Draw(*pixerlLogVol, visAttributes, transRotPos);
-//   }
-// }
+// {}
+
+void PixelHit::Draw()
+{
+  G4VVisManager* visManager = G4VVisManager::GetConcreteInstance();
+
+  if(!visManager) return;
+  // {
+  //   G4Transform3D transRotPos(hitRot.inverse(), hitPos);
+  //
+  //   G4VisAttributes visAttributes;
+  //
+  //   const G4VisAttributes* volVisAttributes = pixelLogVol->GetVisAttributes();
+  //
+  //   if (pixelLogVol) visAttributes = *volVisAttributes;
+
+  G4Circle circle(hitPos);
+
+  circle.SetScreenSize(2);
+
+  circle.SetFillStyle(G4Circle::filled);
+
+  G4Colour colour(1., 1., 0.);
+  // G4Colour colour(0., 1., 1.);
+
+  G4VisAttributes attribs(colour);
+
+  circle.SetVisAttributes(attribs);
+
+  // visAttributes->SetColour(colour);
+  // // visAttributes->SetForceWireframe(false);
+  // visAttributes->SetForceSolid(true);
+
+  visManager->Draw(circle);
+  // visManager->Draw(*pixelLogVol, visAttributes, transRotPos);
+
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 

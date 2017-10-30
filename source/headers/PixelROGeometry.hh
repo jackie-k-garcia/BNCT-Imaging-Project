@@ -17,10 +17,10 @@ public:
   PixelROGeometry(G4String);
   ~PixelROGeometry();
 
-  const G4VPhysicalVolume* GetPMTPixel(int i, int j, int k)
-  {
-    return physiROMatrix[i][j][k];
-  }
+  // const G4VPhysicalVolume* GetPMTPixel(int i, int j, int k)
+  // {
+  //   return physiROMatrix[i][j][k];
+  // }
 
 private:
 
@@ -34,7 +34,7 @@ private:
 
   G4Tubs*            solidROMatrix;    // Pointer to the solid Matrix
   G4LogicalVolume*   logicROMatrix;
-  G4VPhysicalVolume* physiROMatrix[64][64][1];
+  // G4VPhysicalVolume* physiROMatrix; //[64][64][1];
 
   // G4Box*             solidROLinlayer;  // Pointer to the solid Linlayer
   // G4LogicalVolume*   logicROLinlayer;

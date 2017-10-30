@@ -59,6 +59,12 @@ void ActionInitialization::BuildForMaster() const
 {
   // SetUserAction(new RunAction);
 
+  HistoManager* histo = new HistoManager();
+
+  // Define and set a new run action.
+  RunAction* runAction = new RunAction(histo);
+  SetUserAction(runAction);
+
   // SetUserAction(new RunAction(fOutputFileSpec));
 }
 
@@ -66,8 +72,12 @@ void ActionInitialization::BuildForMaster() const
 
 void ActionInitialization::Build() const
 {
+
+  HistoManager* histo = new HistoManager();
+
   // Define and set a new run action.
-  SetUserAction(new RunAction);
+  RunAction* runAction = new RunAction(histo);
+  SetUserAction(runAction);
   // RunAction* runAction = new RunAction(fOutputFileSpec);
   // SetUserAction(runAction);
 
@@ -75,15 +85,9 @@ void ActionInitialization::Build() const
   SetUserAction(new PrimaryGeneratorAction);
 
   // Define and set a new event action.
-  SetUserAction(new EventAction);
-  // EventAction* eventAction = new EventAction(runAction);
-  // SetUserAction(eventAction);
-
-  // Define a new histogram manager. The setup of new histograms is done with this
-  //  HistoManager class instantiation.
-  HistoManager* histoManager = new HistoManager();
-
-  histoManager->Book();
+  // SetUserAction(new EventAction);
+  EventAction* eventAction = new EventAction(histo);
+  SetUserAction(eventAction);
 
   // SetUserAction(new TrackingAction(fDetector, event, histo));
 

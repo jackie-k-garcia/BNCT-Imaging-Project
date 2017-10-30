@@ -84,10 +84,10 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     //  if desired.
     void ConstructSDandField();
 
-    const G4VPhysicalVolume* GetScintPixel(int i, int j, int k)
-    {
-      return physiScint[i][j][k];
-    }
+    // const G4VPhysicalVolume* GetScintPixel(int i, int j, int k)
+    // {
+    //   return physiScint[i][j][k];
+    // }
 
     // // G4LogicalVolume* ReturnVolume() const {return fScoringVolume;}
     // G4LogicalVolume* GetScoringVolume() const {return fScoringVolume;}
@@ -139,9 +139,9 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     // Define the scintillator pixel array.
     G4Box*             solidScint;                     // Pointer to the solid scintillator matrix
     G4LogicalVolume*   logicScint;                     // Pointer to the logical scintillator matrix
-    G4VPhysicalVolume*
-      physiScint[64][32][1];        // Pointer to the physical scintillator matrix
-    G4VPhysicalVolume* physiScintPixel;
+    // G4VPhysicalVolume*
+    //   physiScint[64][32][1];        // Pointer to the physical scintillator matrix
+    // G4VPhysicalVolume* physiScintPixel;
 
     // Define the collimator array.
     G4Box*             solidCollim;                             // Pointer to the solid collimator matrix

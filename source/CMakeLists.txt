@@ -65,3 +65,5 @@ add_custom_target(DEPENDS BNCT)
 # Install the executable to the 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS BNCT DESTINATION bin)
+
+set(CMAKE_BUILD_TYPE Debug)

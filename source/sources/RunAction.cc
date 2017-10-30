@@ -38,6 +38,8 @@
 // #include "HistoManager.hh"
 
 #include "G4Run.hh"
+// #include "g4csv.hh"
+// #include "g4root.hh"
 
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
@@ -52,6 +54,8 @@
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
 
+#include "HistoManager.hh"
+
 #include "Randomize.hh"
 #include <iomanip>
 #include <assert.h>
@@ -62,8 +66,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 // RunAction::RunAction(const G4String& outputFile)
-RunAction::RunAction()
-: G4UserRunAction(), runID(0)
+RunAction::RunAction(HistoManager* hist)
+: G4UserRunAction(), runID(0), histoManager(hist)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -103,6 +107,20 @@ RunAction::~RunAction()
 
 void RunAction::BeginOfRunAction(const G4Run* aRun)
 {
+  #include "DetectorParameterDef.icc"
+
+  // // Initialize the histograms.
+  // auto analysisManager = G4AnalysisManager::Instance();
+  // // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //
+  // analysisManager->SetVerboseLevel(1);
+  //
+  // analysisManager->SetFirstHistoId(1);
+  //
+  // analysisManager->OpenFile();
+  // analysisManager->OpenFile(filename);
+  // analysisManager->SetHistoDirectoryName(directory);
+
   // aRun->SetRunID(runID++);
   ((G4Run*)(aRun))->SetRunID(runID++);
 
@@ -113,7 +131,67 @@ void RunAction::BeginOfRunAction(const G4Run* aRun)
     G4UImanager* UI = G4UImanager::GetUIpointer();
     UI->ApplyCommand("/vis/scene/notifyHandlers");
   }
+
+  histoManager->Book();
+
 }
+
+// //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//
+// void RunAction::Book()
+// {
+//   #include "DetectorParameterDef.icc"
+//
+//   // Initialize the histograms.
+//   auto analysisManager = G4AnalysisManager::Instance();
+//
+//   // // Initialize an array to hold the histogram IDs.
+//   G4int idTot = PMTNbX*PMTNbY*PMTNbM;
+//
+//   G4String title[idTot];
+//
+//   G4int titleID = 0;
+//
+//   // const G4String title[PixelNbX][PixelNbY][PixelNbM];
+//   //
+//   // Fill the histogram ID array.
+//   for (int i=0; i<PixelNbX; i++)
+//   {
+//     for (int j=0; j<PixelNbY; j++)
+//     {
+//       for (int k=0; k<PixelNbM; k++)
+//       {
+//         titleID++;
+//
+//         std::string titleTemp;
+//
+//         titleTemp = "Pixel " + std::to_string(i) + ", " + std::to_string(j) + ", " + std::to_string(k);
+//
+//         title[titleID] = titleTemp;
+//       }
+//     }
+//   }
+//
+//   titleID = 0;
+//
+//   // Iterate through and create all histograms.
+//   for (int i=0; i<PixelNbX; i++)
+//   {
+//     for (int j=0; j<PixelNbY; j++)
+//     {
+//       for (int k=0; k<PixelNbM; k++)
+//       {
+//         titleID++;
+//
+//         G4int ih = analysisManager->CreateH1(title[titleID], "Gamma Spectrum",
+//         numBins, engMin, engMax, "keV");
+//
+//         analysisManager->SetH1Activation(ih, true);
+//       }
+//     }
+//   }
+//
+// }
 
 
   // // Histograms
@@ -135,6 +213,17 @@ void RunAction::BeginOfRunAction(const G4Run* aRun)
 
 void RunAction::EndOfRunAction(const G4Run* aRun)
 {
+  // // Initialize the histograms.
+  // auto analysisManager = G4AnalysisManager::Instance();
+  // // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //
+  // analysisManager->Write();
+  // analysisManager->CloseFile();
+
+  // delete analysisManager;
+
+  histoManager->Save();
+
   if (G4VVisManager::GetConcreteInstance())
   { G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update"); }
 
@@ -143,76 +232,76 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RunAction::fillPerHit(G4ThreeVector pixLoc = G4ThreeVector(), G4double hitEnergy = 0.0, G4int eventStep = 0)
-{
-  static G4int EventNumber = 0;
-  // static G4int Multiplicity = 0;
-
-  // static G4double initEnergy = 0;
-  static G4double totalEngDep = 0;
-
-  // EventNumber++;
-
-  /*** Writing to Data File ***/
-
-  // BEGINNING OF EVENT: Increment event number
-  if (eventStep == -1)
-  {
-    // IDinX = 0;
-    // IDinY = 0;
-    EventNumber++;
-  }
-
-  // END OF EVENT: Writing to data file
-  else if (eventStep == 1)
-  {
-
-    // if (TotalPixelEnergy == InitEnergy) { FullyDetected++; }
-
-    // if (TotalPixelEnergy > 20*keV) { Detected++; }
-
-    // Open the data file for writing and name it.
-    outputDataFile.open("gammacameradata");
-
-    // Fill the output data file.
-    outputDataFile << " Source Photon #:   " << EventNumber                             // << G4endl
-                   << " Position:          "
-                   << pixLoc.x() << " " << pixLoc.y() << " " << pixLoc.z()
-                   << " Energy Deposition: " << totalEngDep;                               // << G4endl
-                  //  << " Fully Detected:  " << FullyDetected;
-    // outputDataFile << "Detected: " << Detected << G4endl; << " Fully Detected: " << FullyDetected;
-
-    // Close the output data file.
-    outputDataFile.close();
-
-    /*** Reseting the variables at the end of the current event ***/
-    totalEngDep = 0;
-    // Multiplicity = 0;
-
-  }
-
-  // DURING EVENT: Writing on File
-  else
-  {
-    // Multiplicity++;
-    //
-    // if (Multiplicity == 1) { InitEnergy=IDinX; }
-
-    totalEngDep = totalEngDep + hitEnergy;
-
-    // if (PixelEnergy > 20*keV)
-    // {
-    //   TotalPixelEnergy = TotalPixelEnergy + PixelEnergy;
-    // }
-
-    // // Print to screen the hit information.
-    // G4cout << "Initial Energy: " << InitEnergy
-    //        << " Energy: " << PixelEnergy << " Total: "
-    //        << TotalPixelEnergy << G4endl;
-
-  }
-
-}
+// void RunAction::fillPerHit(G4ThreeVector pixLoc = G4ThreeVector(), G4double hitEnergy = 0.0, G4int eventStep = 0)
+// {
+//   static G4int EventNumber = 0;
+//   // static G4int Multiplicity = 0;
+//
+//   // static G4double initEnergy = 0;
+//   static G4double totalEngDep = 0;
+//
+//   // EventNumber++;
+//
+//   /*** Writing to Data File ***/
+//
+//   // BEGINNING OF EVENT: Increment event number
+//   if (eventStep == -1)
+//   {
+//     // IDinX = 0;
+//     // IDinY = 0;
+//     EventNumber++;
+//   }
+//
+//   // END OF EVENT: Writing to data file
+//   else if (eventStep == 1)
+//   {
+//
+//     // if (TotalPixelEnergy == InitEnergy) { FullyDetected++; }
+//
+//     // if (TotalPixelEnergy > 20*keV) { Detected++; }
+//
+//     // Open the data file for writing and name it.
+//     outputDataFile.open("gammacameradata");
+//
+//     // Fill the output data file.
+//     outputDataFile << " Source Photon #:   " << EventNumber                             // << G4endl
+//                    << " Position:          "
+//                    << pixLoc.x() << " " << pixLoc.y() << " " << pixLoc.z()
+//                    << " Energy Deposition: " << totalEngDep;                               // << G4endl
+//                   //  << " Fully Detected:  " << FullyDetected;
+//     // outputDataFile << "Detected: " << Detected << G4endl; << " Fully Detected: " << FullyDetected;
+//
+//     // Close the output data file.
+//     outputDataFile.close();
+//
+//     /*** Reseting the variables at the end of the current event ***/
+//     totalEngDep = 0;
+//     // Multiplicity = 0;
+//
+//   }
+//
+//   // DURING EVENT: Writing on File
+//   else
+//   {
+//     // Multiplicity++;
+//     //
+//     // if (Multiplicity == 1) { InitEnergy=IDinX; }
+//
+//     totalEngDep = totalEngDep + hitEnergy;
+//
+//     // if (PixelEnergy > 20*keV)
+//     // {
+//     //   TotalPixelEnergy = TotalPixelEnergy + PixelEnergy;
+//     // }
+//
+//     // // Print to screen the hit information.
+//     // G4cout << "Initial Energy: " << InitEnergy
+//     //        << " Energy: " << PixelEnergy << " Total: "
+//     //        << TotalPixelEnergy << G4endl;
+//
+//   }
+//
+// }
 
   // // If a visual manager exists.
   // //

@@ -41,6 +41,9 @@
 #include "G4HCofThisEvent.hh"
 #include "G4VHitsCollection.hh"
 
+// #include "g4csv.hh"
+// #include "g4root.hh"
+
 #include "G4TrajectoryContainer.hh"
 #include "G4Trajectory.hh"
 
@@ -74,9 +77,10 @@ using namespace std;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 // EventAction::EventAction(RunAction* runAction)
-EventAction::EventAction()
+EventAction::EventAction(HistoManager* histo)
 : G4UserEventAction(),
-  pixelCollID(-1)
+  pixelCollID(-1),
+  histoManager(histo)
   // drawFlag("all"),
   // eventMessenger(0),
   // printModulo(10000)
@@ -116,7 +120,7 @@ void EventAction::BeginOfEventAction(const G4Event* currentEvent)
   // engDepArray[xLoc][yLoc][mLoc]
 
   // Get the event ID number of the current event.
-  G4int eventNum = currentEvent->GetEventID();
+  // G4int eventNum = currentEvent->GetEventID();
 
   // // Print the random engine status only every "printModulo" number of events.
   // if (eventNum % printModulo == 0)
@@ -146,6 +150,9 @@ void EventAction::BeginOfEventAction(const G4Event* currentEvent)
 
 void EventAction::EndOfEventAction(const G4Event* currentEvent)
 {
+
+  // #include "DetectorParameterDef.hh"
+
   #include "DetectorParameterDef.icc"
 
   G4double engDepArray[PMTNbX][PMTNbY][PMTNbM];
@@ -175,16 +182,29 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
   // Obtain the hits collection of this event.
   G4HCofThisEvent* HCE = currentEvent->GetHCofThisEvent();
 
+  // auto HCE = currentEvent->GetHCofThisEvent();
+
+  if (!HCE)
+  {
+    G4ExceptionDescription errorMsg;
+
+    errorMsg << "No hits collection of this event found." << G4endl;
+
+    G4Exception("EventAction::EndOfEventAction()",
+                "BNCTErrorCode1", JustWarning, errorMsg);
+  }
+
   // Initialize the pixel hits collection.
   PixelHitsCollection* PHC = 0;
 
   // Define the pixel hits collection as a pointer to the hits collection of the
   //  event if the hits collection of the event is nonempty.
-  if (HCE) { PHC = (PixelHitsCollection*)(HCE->GetHC(pixelCollID)); }
+  if (HCE) { PHC = static_cast<PixelHitsCollection*>(HCE->GetHC(pixelCollID));}
+  // if (HCE) { PHC = (PixelHitsCollection*)(HCE->GetHC(pixelCollID)); }
 
   // for (int i=0; i<PixelNbX; i++)
   // {
-  //   for (int j=0; j<PixelNbY; j++)
+  //   for (int j=0; j<PixelNbY; j++)10
   //   {
   //     for (int k=0; k<PixelNbM; k++)
   //     {
@@ -202,6 +222,8 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
   {
     // Store the number of registered hits in the pixel hits collection.
     int numHits = PHC->entries();
+
+    G4cout << "The number of hits is " << numHits << G4endl;
 
     // Initialize the total energy deposition.
     G4double totEngDepPix = 0.; //, totLPix=0;
@@ -234,7 +256,7 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
 
         engDepArray[xLoc][yLoc][mLoc] += engStep;
 
-        G4ThreeVector hitPos = (*PHC)[i]->GetHitPos();
+        // G4ThreeVector hitPos = (*PHC)[i]->GetHitPos();
 
         // engDepPix[i] += (*PHC)[i]->GetEngDep() / GeV;
       }
@@ -249,20 +271,42 @@ void EventAction::EndOfEventAction(const G4Event* currentEvent)
 
   //
   // Fill the histograms with the event information.
-  //
-  G4int idIterator = 0;
 
-  for (int i=0; i<PixelNbX; i++)
+  // idIterator++;
+
+  // auto analysisManager = G4AnalysisManager::Instance();
+
+  // std::string titleTemp;
+
+  // titleTemp = "Pixel " + std::to_string(i) + ", " + std::to_string(j) + ", "std::to_string(k);
+
+  // analysisManager->GetH1Id(titleTemp, true);
+
+  // analysisManager->FillH1(1, engDepArray[0][0][0]);
+
+  // auto analysisManager = G4AnalysisManager::Instance();
+
+  G4int idIterator = 0;
+  //
+
+  for (int i=0; i<PMTNbX; i++)
   {
-    for (int j=0; j<PixelNbY; j++)
+    for (int j=0; j<PMTNbY; j++)
     {
-      for (int k=0; k<PixelNbM; k++)
+      for (int k=0; k<PMTNbM; k++)
       {
+
         idIterator++;
 
-        G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+        // std::string titleTemp;
+        //
+        // titleTemp = "Pixel " + std::to_string(i) + ", " + std::to_string(j) + ", " + std::to_string(k);
+        //
+        // analysisManager->GetH1Id(titleTemp, true);
 
-        analysisManager->FillH1(idIterator, engDepArray[i][j][k]);
+        histoManager->FillHisto(idIterator, engDepArray[i][j][k]);
+
+        // analysisManager->FillH1(idIterator, engDepArray[i][j][k]);
 
       }
     }

@@ -2,6 +2,8 @@
 // The head file in the BNCT Imaging Project simulation.
 //
 
+// #include <stdlib.h>
+
 #ifdef G4MULTITHREADED
   #include "G4MTRunManager.hh"
 #else

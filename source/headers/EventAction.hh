@@ -38,6 +38,9 @@
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 
+#include "g4csv.hh"
+// #include "g4root.hh"
+
 // #include "G4Timer.hh"
 
 #include "G4SystemOfUnits.hh"
@@ -45,6 +48,7 @@
 #include "G4UnitsTable.hh"
 
 class RunAction;
+class HistoManager;
 
 // class EventActionMessenger;
 
@@ -53,7 +57,7 @@ class EventAction : public G4UserEventAction
   public:
 
     // Define the event action constructor.
-    EventAction();
+    EventAction(HistoManager*);
     // EventAction(RunAction*);
 
     // Define the event action destructor.
@@ -96,6 +100,8 @@ class EventAction : public G4UserEventAction
   //   G4double fEngDepArr[2];
 
   private:
+
+    HistoManager* histoManager;
 
     G4int                   pixelCollID;
     // G4String                drawFlag;

@@ -40,7 +40,9 @@
 
 #include "G4UserRunAction.hh"
 #include "globals.hh"
-#include "G4ios.hh"
+// #include "G4ios.hh"
+// #include "g4csv.hh"
+// #include "g4root.hh"
 // #include "G4Accumulable.hh"
 
 
@@ -49,6 +51,8 @@
 #include "G4UnitsTable.hh"
 
 #include "G4ThreeVector.hh"
+
+// #include "HistoManager.hh"
 
 #include "iomanip"
 #include <assert.h>
@@ -61,6 +65,7 @@
 #include <streambuf>
 
 class G4Run;
+class HistoManager;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -69,7 +74,7 @@ class RunAction : public G4UserRunAction
   public:
 
     // Define the constructor for the run action.
-    RunAction();
+    RunAction(HistoManager*);
     // RunAction(const G4String&);
 
     // Define the destructor for the run action.
@@ -89,7 +94,11 @@ class RunAction : public G4UserRunAction
     //   deposition occurs.
     virtual void EndOfRunAction(const G4Run* aRun);
 
-    void fillPerHit(G4ThreeVector, G4double, G4int);
+    // virtual void Book();
+
+    // virtual void FillHisto(G4int, )
+
+    // void fillPerHit(G4ThreeVector, G4double, G4int);
     // void fillPerHit(G4ThreeVector, G4double, G4int = 0);
     // void fillPerHit(G4ThreeVector, G4double = 0.0, G4int);
     // void fillPerHit(G4ThreeVector = G4ThreeVector(), G4double = 0.0, G4int = 0);
@@ -101,8 +110,10 @@ class RunAction : public G4UserRunAction
 
     #include "DetectorParameterDef.hh"                // Import the gamma camera parameters
 
+    HistoManager* histoManager;
+
     // Create the file to store the hit data.
-    std::ofstream outputDataFile;
+    // std::ofstream outputDataFile;
 
     G4int runID;
 

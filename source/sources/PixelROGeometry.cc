@@ -20,6 +20,8 @@
 PixelROGeometry::PixelROGeometry()
 {
   #include "DetectorParameterDef.icc"
+
+  Build();
 }
 
 PixelROGeometry::PixelROGeometry(G4String someString)
@@ -33,6 +35,7 @@ PixelROGeometry::~PixelROGeometry()
 
 G4VPhysicalVolume* PixelROGeometry::Build()
 {
+  #include "DetectorParameterDef.icc"
   // Define a dummy material to fill the volumes of the readout geoemtry
   //  but is arbitrary and doesn't affect any results.
   G4Material* dummyMat = new G4Material(name="dummyMat", 1., 1.*g/mole, 1.*g/cm3);
@@ -96,23 +99,37 @@ G4VPhysicalVolume* PixelROGeometry::Build()
   // G4VPhysicalVolume* physiROMatrix[PMTNbX][PMTNbY][PMTNbM];
 
   // NOTE: Must add an extra degree of freedom to "shifted" PMT parametrization.
+
+  G4int copyID = 0;
+
   for (G4int i=0; i<PMTNbX; i++)
   {
     for (G4int j=0; j<PMTNbY; j++)
     {
       for (G4int k=0; k<PMTNbM; k++)
       {
-        G4ThreeVector PMTPixelPos(ScintCrystalHeight * (1/2 + i - ScintArrayWidth/2),
-                                  ScintCrystalWidth  * (1/2 + j - ScintArrayHeight/2),
-                                  PMTArrayDisplacement);
+        copyID++;
 
-        physiROMatrix[i][j][k] = new G4PVPlacement(0,
-                                                   PMTPixelPos,
-                                                   "PMT Array",
-                                                   logicROMatrix,
-                                                   physiROWorld,
-                                                   false,
-                                                   i*j*k);
+        G4ThreeVector PMTPixelPos(ScintCrystalHeight * (1/2 + i) - ScintArrayWidth/2,
+                                  PMTArrayDisplacement,
+                                  ScintCrystalWidth  * (1/2 + j) - ScintArrayHeight/2);
+
+
+        new G4PVPlacement(0,
+                          PMTPixelPos,
+                          "PMT Array",
+                          logicROMatrix,
+                          physiROWorld,
+                          false,
+                          copyID);
+
+        // physiROMatrix = new G4PVPlacement(0,
+        //                                   PMTPixelPos,
+        //                                   "PMT Array",
+        //                                   logicROMatrix,
+        //                                   physiROWorld,
+        //                                   false,
+        //                                   copyID);
       }
     }
   }
