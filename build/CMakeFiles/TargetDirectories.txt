@@ -1,0 +1,8 @@
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/rebuild_cache.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/edit_cache.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/install.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/list_install_components.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/BNCT.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/DEPENDS.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/install/strip.dir
+/home/yaro/Geant/BNCT-Imaging-Project/build/CMakeFiles/install/local.dir

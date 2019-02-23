@@ -1,0 +1,80 @@
+#
+# Initialize the run
+#
+/run/initialize
+
+#
+# Create the world
+#
+/vis/scene/create
+
+#
+# Add volume to the scene
+#
+/vis/scene/add/volume
+
+#
+# Create a scene handler
+#
+/vis/open OGL
+
+#
+# Create viewer
+#
+/vis/viewer/create
+
+#
+# Draw scene
+#
+/vis/scene/notifyHandlers
+
+#
+# For drawing the tracks. If there are too many tracks,
+# Geant does a core dump. Then set to 0 here.
+#
+/tracking/storeTrajectory 0
+#/vis/multithreading/actionOnEventQueueFull discard
+
+#
+# Type of particle beam
+#
+/gps/particle neutron
+
+#
+# Center of particle beam
+#
+/gps/pos/centre 0 0 0 cm
+#/gps/pos/centre 0 100 0 cm
+
+#
+# Direction of particle beam
+#
+/gps/direction 0 -1 0
+
+#
+# Shape of particle beam
+#
+#/gps/pos/type Plane
+#/gps/pos/shape Square
+/gps/pos/type Beam
+
+# Size of the particle beam
+#/gps/pos/halfx 10 cm
+#/gps/pos/halfy 10 cm
+
+#
+# Angular distribution of particle beam
+#
+/gps/ang/type beam1d
+#/gps/ang/type beam2d
+
+#
+# Energy of particle beam
+#
+/gps/ene/type Mono
+/gps/ene/mono 10 keV
+
+#
+# Run and iterate the beam
+#
+/run/beamOn 1

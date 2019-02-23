@@ -1,0 +1,33 @@
+#ifndef PixelParameterisation_H
+#define PixelParameterisation_H
+
+#include "globals.hh"
+#include "G4VPVParameterisation.hh"
+
+#include "G4SystemOfUnits.hh"
+#include "G4PhysicalConstants.hh"
+#include "G4UnitsTable.hh"
+
+class G4VPhysicalVolume;
+class G4Box;
+
+class PixelParameterisation : public G4VPVParameterisation
+{
+  public:
+
+    PixelParameterisation();
+    ~PixelParameterisation();
+
+    void ComputeTransformation
+      (const G4int NbOfPixelsInXm G4VPhysicalVolume* physVol) const;
+
+    void ComputeDimensions
+      (G4Box& pixel, const G4int NbOfPixelsInX,
+       const G4VPhysicalVolume* physVol) const;
+
+  private:
+
+    #include "DetectorParameterDef.hh"
+};
+
+#endif
